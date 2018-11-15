@@ -10,8 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Política na mão</title>
-        <link rel="stylesheet" href="../../../TrabalhoAvaliativo3/resources/node_modules/bootstrap/compiler/bootstrap.css"/>
-
+        <link rel="stylesheet" href="../../../PoliticoNaMao/resources/node_modules/bootstrap/compiler/bootstrap.css"/>
     </head>
     <body>
         
@@ -43,8 +42,8 @@
                 </div>
             </div>
             
-        <script src="../../../TrabalhoAvaliativo3/resources/node_modules/jquery/dist/jquery.js"></script>
-        <script src="../../../TrabalhoAvaliativo3/resources/node_modules/popper.js/dist/umd/popper.js"></script>
-        <script src="../../../TrabalhoAvaliativo3/resources/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    </body>
+<script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../PoliticoNaMao/resources/node_modules/popper.js/dist/umd/popper.js"></script>
+    <script src="../../../PoliticoNaMao/resources/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        </body>
 </html>

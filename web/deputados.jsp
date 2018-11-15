@@ -13,18 +13,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Político na mão</title>
-        <link rel="stylesheet" href="../../../resources/TrabalhoAvaliativo3/node_modules/bootstrap/compiler/bootstrap.css"/>
-
+        <link rel="stylesheet" href="../../../PoliticoNaMao/resources/node_modules/bootstrap/compiler/bootstrap.css"/>
+    
     </head>
     <body>
         <%@include file="barraMenu.jsp" %>
-
+        
         <div class="ml-3 mt-5">
 
             <div class="container">
                 <h5 class="display-5">Deputados</h5>
                 <p>Filtrar por:</p>
-                <table class="table table-hover table-sm">
+                <table class="table table-hover table-sm" id="example">
                     <thead>
                         <tr>
                             <th scope="col">Nome</th>
@@ -42,7 +42,7 @@
                                 for (Object deputado : deputados) {
                                     Deputados d = (Deputados) deputado;
                                     
-                                    out.print("<tr>");
+                                    out.print("<tr id='" + d.getIdParlamentar() + "'>");
                                     out.print("<td scope='row'>" + d.getNome() + "</td>");
                                     out.print("<td scope='row'>" + d.getPartido()+ "</td>");
                                     out.print("<td scope='row'>" + d.getUf()+ "</td>");
@@ -55,8 +55,8 @@
         </div>
 
         <%@include file="quemSomos.jsp" %>
-        <script src="../../../TrabalhoAvaliativo3/resources/node_modules/jquery/dist/jquery.js"></script>
-        <script src="../../../TrabalhoAvaliativo3/resources/node_modules/popper.js/dist/umd/popper.js"></script>
-        <script src="../../../TrabalhoAvaliativo3/resources/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../PoliticoNaMao/resources/node_modules/popper.js/dist/umd/popper.js"></script>
+    <script src="../../../PoliticoNaMao/resources/node_modules/bootstrap/dist/js/bootstrap.js"></script>
     </body>
 </html>
