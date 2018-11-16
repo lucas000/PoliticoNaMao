@@ -21,7 +21,7 @@
         <div class="ml-3 mt-5">
 
             <div class="container">
-                <h5 class="display-5">Deputados</h5>
+                <h5 class="display-5">Partidos</h5>
                 <p>Filtrar por:</p>
                 <table class="table table-hover table-sm" id="example">
                     <thead>
