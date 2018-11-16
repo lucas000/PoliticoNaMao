@@ -24,7 +24,7 @@ public class TesteDeputadosDOM {
             DeputadosDOM myExampleDOM = new DeputadosDOM();
        
             // Imprimir os dados do arquivo
-            myExampleDOM.fazerParsing("D:\\Documentos\\Aulas\\IF Goiano\\Sistemas De Informação\\6° Periodo\\Topicos especiais II\\Trabalho Avaliativo 2\\Arquivos\\Deputados\\DeputadosTitulares.xml");
+            myExampleDOM.fazerParsing("..\\PoliticoNaMao\\src\\java\\Arquivos\\DeputadosTitulares.xml");
         
             // Contar a quantidade de paises
             //System.out.printf("\nExistem %d países neste documento\n\n", myExampleSax.contadorPaises);       
