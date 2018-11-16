@@ -6,6 +6,7 @@
 package Consultas;
 
 import Modelos.Deputados;
+import Modelos.Estado;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,7 +20,7 @@ import javax.persistence.Query;
 public class TesteQueriesDeputados {
 
     /**
-     * @param args the command line arguments
+     * @return 
      */
     
     public List<Deputados> buscaDeputados(){
@@ -31,6 +32,16 @@ public class TesteQueriesDeputados {
         
         return deputados;
         
+    }
+    
+    public List<Estado> buscaEstado(){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Estado");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT e FROM Estado e");
+        List estados = query.getResultList();
+        
+        return estados;
     }
         /*
         Query query = manager.createQuery("SELECT nome FROM Deputados d");
