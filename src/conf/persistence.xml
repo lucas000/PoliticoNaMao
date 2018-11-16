@@ -5,6 +5,7 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <!-- entidade mapeada -->
     <class>Modelos.Deputados</class>
+    <class>Modelos.Partidos</class>
     <properties>
       <!-- dados da conexao -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

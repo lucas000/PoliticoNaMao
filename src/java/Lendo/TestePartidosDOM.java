@@ -11,21 +11,20 @@ import org.xml.sax.SAXException;
 
 /**
  *
- * @author Lucas
+ * @author Allan
  */
-public class TesteDeputadosDOM {
+public class TestePartidosDOM {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+       
         try {
-            DeputadosDOM myExampleDOM = new DeputadosDOM();
+            PartidosDOM myExampleDOM = new PartidosDOM();
        
             // Imprimir os dados do arquivo
-            myExampleDOM.fazerParsing("..\\PoliticoNaMao\\src\\java\\Arquivos\\DeputadosTitulares.xml");
-        
+            myExampleDOM.fazerParsing("..\\PoliticoNaMao\\src\\java\\Arquivos\\Partidos.xml");
             // Contar a quantidade de paises
             //System.out.printf("\nExistem %d países neste documento\n\n", myExampleSax.contadorPaises);       
         } catch (ParserConfigurationException | SAXException | IOException e) {
@@ -36,5 +35,7 @@ public class TesteDeputadosDOM {
             System.out.println(msg);
         }
     }
+        
+    }
     
-}
+

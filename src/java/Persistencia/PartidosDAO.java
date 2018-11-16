@@ -6,21 +6,22 @@
 package Persistencia;
 
 import Modelos.Deputados;
+import Modelos.Partidos;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
  *
- * @author Lucas
+ * @author Allan
  */
-public class DeputadoDAO {
-    EntityManagerFactory deputados = Persistence.createEntityManagerFactory("Deputados");
-    EntityManager manager = deputados.createEntityManager();
+public class PartidosDAO {
+    EntityManagerFactory partidos = Persistence.createEntityManagerFactory("Deputados");
+    EntityManager manager = partidos.createEntityManager();
     
-    public void addDeputado(Deputados deputado){
+    public void addPartido(Partidos partido){
         manager.getTransaction().begin();
-        manager.persist(deputado);
+        manager.persist(partido);
         manager.getTransaction().commit();
     }
     

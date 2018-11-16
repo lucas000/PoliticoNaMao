@@ -6,6 +6,7 @@
 package Consultas;
 
 import Modelos.Deputados;
+import Modelos.Partidos;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,31 +15,22 @@ import javax.persistence.Query;
 
 /**
  *
- * @author Lucas
+ * @author Allan
  */
-public class TesteQueriesDeputados {
-
+public class TesteQueriesPartidos {
     /**
      * @param args the command line arguments
      */
     
-    public List<Deputados> buscaDeputados(){
+    public List<Partidos> buscaPartidos(){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Deputados e");
-        List deputados = query.getResultList();
+        Query query = manager.createQuery("SELECT e FROM Partidos e");
+        List partidos = query.getResultList();
         
-        return deputados;
+        return partidos;
         
     }
-        /*
-        Query query = manager.createQuery("SELECT nome FROM Deputados d");
-        List<String> list = query.getResultList();
-        
-        System.out.println("Deputados no Brasil");
-        for (String e : list) {
-            System.out.println(e);
-        }
-        */
+    
 }
