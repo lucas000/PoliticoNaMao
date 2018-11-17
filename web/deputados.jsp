@@ -9,6 +9,7 @@
 <%@page import="java.util.List"%>
 <%@page import="Consultas.TesteQueriesDeputados"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,27 +25,29 @@
 
             <div class="container">
                 <h5 class="display-5">Deputados</h5>
-                <p>Filtrar por:</p>
-                <form class="form-row">
+                <form action="DeputadoServelt" class="form-row">
                  <p class="form-group mr-2 mt-2">Estados</p>
                   <div class="form-group">
-                    <select class="form-control md-1" id="exampleFormControlSelect1">
+                    <select class="form-control md-1" name="estado" id="estados" onchange="estado(this.value);">
+                        <option>Todos</option>
                         <%
                                 TesteQueriesDeputados estado = new TesteQueriesDeputados();
                                 
                                 List<Estado> estados = estado.buscaEstado();
                                 
+                                
                                 for (Object deputado : estados) {
                                     Estado est = (Estado) deputado;
-                                    out.print("<option>" + est.getUf() + "</option>");
+                                    out.print("<option value='" + est.getUf() + "'>" + est.getUf() + "</option>");
                                 }
                             %>
                     </select>
                   </div>
                  <p class="form-group ml-2 mr-2">Partidos</p>
                     <div class="form-group">
-                    <select class="form-control md-1" id="exampleFormControlSelect2">
+                    <select class="form-control md-1" name="partido" id="partidos" onchange="partido();">
                         <a class="dropdown-item" href="#">DEM</a>
+                            <option>Todos</option>
                             <option>AVANTE</option>
                             <option>MDB</option>
                             <option>PATRI</option>
@@ -68,60 +71,11 @@
                             <option>SD</option>
                     </select>
                   </div>
+                 <div class="form-group">
+                    <button type="submit" class="btn btn-default ml-2">Ordenar</button>
+                 </div>
                 </form>
-                    <!--Partidos-->
-                    <!--
-                    <div class="dropdown ml-1">
-                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Todos os artidos
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">DEM</a>
-                            <a class="dropdown-item" href="#">AVANTE</a>
-                            <a class="dropdown-item" href="#">MDB</a>
-                            <a class="dropdown-item" href="#">PATRI</a>
-                            <a class="dropdown-item" href="#">PCdoB</a>
-                            <a class="dropdown-item" href="#">PDT</a>
-                            <a class="dropdown-item" href="#">PHS</a>
-                            <a class="dropdown-item" href="#">PODE</a>
-                            <a class="dropdown-item" href="#">PP</a>
-                            <a class="dropdown-item" href="#">PPL</a>
-                            <a class="dropdown-item" href="#">PRB</a>
-                            <a class="dropdown-item" href="#">PROS</a>
-                            <a class="dropdown-item" href="#">PSB</a>
-                            <a class="dropdown-item" href="#">PSC</a>
-                            <a class="dropdown-item" href="#">PSD</a>
-                            <a class="dropdown-item" href="#">PSDB</a>
-                            <a class="dropdown-item" href="#">PSL</a>
-                            <a class="dropdown-item" href="#">PT</a>
-                            <a class="dropdown-item" href="#">PTB</a>
-                            <a class="dropdown-item" href="#">PV</a>
-                            <a class="dropdown-item" href="#">REDE</a>
-                            <a class="dropdown-item" href="#">SD</a>
-                        </div>
-                    </div>
-                    -->
                     
-                    <!-- Estados-->
-                    <!--
-                    <div class="dropdown ml-1">
-                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Todos os estados
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="item">
-                            <%
-                                //TesteQueriesDeputados estado = new TesteQueriesDeputados();
-                                
-                                //List<Estado> estados = estado.buscaEstado();
-                                
-                                for (Object deputado : estados) {
-                                    Estado est = (Estado) deputado;
-                                    //out.print("<a class='dropdown-item' href='#'>" + est.getUf() + "</a>");
-                                }
-                            %>
-                        </div>
-                    </div>
-                        -->
                 <table class="table table-hover table-sm" id="example">
                     <thead>
                         <tr>
@@ -131,21 +85,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <%
-                                TesteQueriesDeputados query = new TesteQueriesDeputados();
-                                
-                                List<Deputados> deputados = query.buscaDeputados();
-                                
-                                for (Object deputado : deputados) {
-                                    Deputados d = (Deputados) deputado;
-                                    
-                                    out.print("<tr id='" + d.getIdParlamentar() + "'>");
-                                    out.print("<td scope='row'>" + d.getNome() + "</td>");
-                                    out.print("<td scope='row'>" + d.getPartido()+ "</td>");
-                                    out.print("<td scope='row'>" + d.getUf()+ "</td>");
-                                    out.print("</tr>");
-                                }
-                            %>
+                        <c:forEach var="deputado" items="${deputados}">
+                                <tr>
+                                    <td scope='row'>${deputado.nome}</td>
+                                    <td scope='row'>${deputado.partido}</td>
+                                    <td scope='row'>${deputado.uf}</td>
+                                </tr>
+                            </c:forEach>
                     </tbody>
                 </table>
             </div>
