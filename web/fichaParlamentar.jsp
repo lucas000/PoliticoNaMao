@@ -15,7 +15,8 @@
     </head>
     <body>
         <%@include file="barraMenu.jsp" %>
-        <h1 class="display-5">Ficha parlamentar</h1>
+        
+        <img src="http://www.camara.gov.br/internet/deputado/bandep/160587.jpg"></img>
         <%@include file="quemSomos.jsp" %>
         <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
     <script src="../../../PoliticoNaMao/resources/node_modules/popper.js/dist/umd/popper.js"></script>

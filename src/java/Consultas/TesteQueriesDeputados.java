@@ -27,7 +27,7 @@ public class TesteQueriesDeputados {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Deputados e");
+        Query query = manager.createQuery("SELECT e FROM Deputados e ORDER BY NOME ASC");
         List deputados = query.getResultList();
         
         return deputados;

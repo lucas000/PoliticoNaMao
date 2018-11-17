@@ -14,7 +14,6 @@
     </head>
     <body>
         
-        <div class="container">
             <div class="row">
 
                 <div class="col-sm-4">
@@ -40,7 +39,6 @@
                         <a href="#" class="btn btn-outline-info"><i class="fa fa-twitter-square" aria-hidden="true"></i>Twitter</a>
                     </div>
                 </div>
-            </div>
             
 <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
     <script src="../../../PoliticoNaMao/resources/node_modules/popper.js/dist/umd/popper.js"></script>

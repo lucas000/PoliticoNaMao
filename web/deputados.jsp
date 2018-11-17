@@ -24,10 +24,53 @@
 
             <div class="container">
                 <h5 class="display-5">Deputados</h5>
-                <div class="container row">
-                    <p>Filtrar por:</p>
-                    
+                <p>Filtrar por:</p>
+                <form class="form-row">
+                 <p class="form-group mr-2 mt-2">Estados</p>
+                  <div class="form-group">
+                    <select class="form-control md-1" id="exampleFormControlSelect1">
+                        <%
+                                TesteQueriesDeputados estado = new TesteQueriesDeputados();
+                                
+                                List<Estado> estados = estado.buscaEstado();
+                                
+                                for (Object deputado : estados) {
+                                    Estado est = (Estado) deputado;
+                                    out.print("<option>" + est.getUf() + "</option>");
+                                }
+                            %>
+                    </select>
+                  </div>
+                 <p class="form-group ml-2 mr-2">Partidos</p>
+                    <div class="form-group">
+                    <select class="form-control md-1" id="exampleFormControlSelect2">
+                        <a class="dropdown-item" href="#">DEM</a>
+                            <option>AVANTE</option>
+                            <option>MDB</option>
+                            <option>PATRI</option>
+                            <option>PCdoB</option>
+                            <option>PDT</option>
+                            <option>PHS</option>
+                            <option>PODE</option>
+                            <option>PP</option>
+                            <option>PPL</option>
+                            <option>PRB</option>
+                            <option>PROS</option>
+                            <option>PSB</option>
+                            <option>PSC</option>
+                            <option>PSD</option>
+                            <option>PSDB</option>
+                            <option>PSL</option>
+                            <option>PT</option>
+                            <option>PTB</option>
+                            <option>PV</option>
+                            <option>REDE</option>
+                            <option>SD</option>
+                    </select>
+                  </div>
+                </form>
                     <!--Partidos-->
+                    <!--
                     <div class="dropdown ml-1">
                         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Todos os artidos
@@ -57,27 +100,28 @@
                             <a class="dropdown-item" href="#">SD</a>
                         </div>
                     </div>
+                    -->
                     
                     <!-- Estados-->
+                    <!--
                     <div class="dropdown ml-1">
                         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Todos os estados
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="item">
                             <%
-                                TesteQueriesDeputados estado = new TesteQueriesDeputados();
+                                //TesteQueriesDeputados estado = new TesteQueriesDeputados();
                                 
-                                List<Estado> estados = estado.buscaEstado();
+                                //List<Estado> estados = estado.buscaEstado();
                                 
                                 for (Object deputado : estados) {
                                     Estado est = (Estado) deputado;
-                                    out.print("<a class='dropdown-item' href='#'>" + est.getUf() + "</a>");
+                                    //out.print("<a class='dropdown-item' href='#'>" + est.getUf() + "</a>");
                                 }
                             %>
                         </div>
                     </div>
-                </div>
-                
+                        -->
                 <table class="table table-hover table-sm" id="example">
                     <thead>
                         <tr>
