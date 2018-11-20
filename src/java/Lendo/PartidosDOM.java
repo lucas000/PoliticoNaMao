@@ -53,8 +53,7 @@ public class PartidosDOM {
 
                 Element elem = (Element) nNode;
 
-                Node node1 = elem.getElementsByTagName("id").item(0);
-                String id = node1.getTextContent();
+               
 
                 Node node2 = elem.getElementsByTagName("sigla").item(0);
                 String sigla = node2.getTextContent();
@@ -68,7 +67,7 @@ public class PartidosDOM {
                              
                 Partidos partido = new Partidos();
                 
-                partido.setId(Integer.parseInt(id));
+                partido.setNome(nome);
                 partido.setSigla(sigla);
                 partido.setUri(uri);
                
