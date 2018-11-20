@@ -34,6 +34,16 @@ public class TesteQueriesDeputados {
         
     }
     
+    public List<Deputados> buscaDeputadosPorNome(){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE E.nome=:NOME");
+        List deputados = query.getResultList();
+        
+        return deputados;
+        
+    }
     public List<Estado> buscaEstado(){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Estado");
         EntityManager manager = factory.createEntityManager();
@@ -42,6 +52,17 @@ public class TesteQueriesDeputados {
         List estados = query.getResultList();
         
         return estados;
+    }
+    
+    public List<Deputados> buscaPorPartidoEstado(String estado, String partido){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManager manager = factory.createEntityManager();
+        System.out.println("Em buscaporordenacaoDeputado: " + estado + "Partido: " + partido);
+        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.uf='GO' and e.partido = 'PT'");
+        List deputados = query.getResultList();
+        
+        return deputados;
+        
     }
         /*
         Query query = manager.createQuery("SELECT nome FROM Deputados d");
