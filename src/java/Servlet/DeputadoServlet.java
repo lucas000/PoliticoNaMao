@@ -9,8 +9,8 @@ package Servlet;
 import Consultas.TesteQueriesDeputados;
 import Modelos.Deputados;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Lucas
  */
-@WebServlet(urlPatterns = {"/DeputadoServlet"})
+@WebServlet(name = "DeputadoServlet", urlPatterns = {"/DeputadoServlet"})
 public class DeputadoServlet extends HttpServlet {
 
     /**
@@ -36,11 +36,12 @@ public class DeputadoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        TesteQueriesDeputados b = new TesteQueriesDeputados();
         
-        List<Deputados> d = b.buscaDeputados();
-        request.setAttribute("deputados", d);
+        String estado = request.getParameter("estados");
+        String partido = request.getParameter("partidos");
+        
+        TesteQueriesDeputados d = new TesteQueriesDeputados();
+        request.setAttribute("deputados", d.buscaDeputados());
         
         request.getRequestDispatcher("deputados.jsp").forward(request, response);
     }
@@ -58,6 +59,16 @@ public class DeputadoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        String estado = request.getParameter("estados");
+        String partido = request.getParameter("partidos");
+        
+        System.out.println("Estado: " + estado + "Partido: " + partido);
+        
+        TesteQueriesDeputados d = new TesteQueriesDeputados();
+        request.setAttribute("deputados", d.buscaPorPartidoEstado(estado, partido));
+        
+        request.getRequestDispatcher("deputados.jsp").forward(request, response);
     }
 
     /**
