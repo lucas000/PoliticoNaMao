@@ -23,7 +23,7 @@ import org.xml.sax.SAXException;
  * @author Lucas
  */
 public class DeputadosDOM {
-     public void fazerParsing(String pathArq) throws SAXException,
+    public void fazerParsing(String pathArq) throws SAXException,
             IOException, ParserConfigurationException {
 
         File xmlFile = new File(pathArq);
@@ -110,7 +110,7 @@ public class DeputadosDOM {
                 deputado.setFone(fone);
                 deputado.setEmail(email);
                 
-                dao.addDeputado(deputado);
+                //dao.addDeputado(deputado);
                 System.out.println(deputado.toString());
                 
             } // end if
