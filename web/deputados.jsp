@@ -9,7 +9,8 @@
 <%@page import="java.util.List"%>
 <%@page import="Consultas.TesteQueriesDeputados"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,12 +26,12 @@
 
             <div class="container">
                 <h5 class="display-5">Deputados</h5>
-                <form action="DeputadoServelt" class="form-row">
+                <form action="DeputadoServlet" class="form-row" method="GET">
                  <p class="form-group mr-2 mt-2">Estados</p>
                   <div class="form-group">
-                    <select class="form-control md-1" name="estado" id="estados" onchange="estado(this.value);">
+                    <select class="form-control md-1" name="estados">
                         <option>Todos</option>
-                        <%
+                            <%
                                 TesteQueriesDeputados estado = new TesteQueriesDeputados();
                                 
                                 List<Estado> estados = estado.buscaEstado();
@@ -45,7 +46,7 @@
                   </div>
                  <p class="form-group ml-2 mr-2">Partidos</p>
                     <div class="form-group">
-                    <select class="form-control md-1" name="partido" id="partidos" onchange="partido();">
+                    <select class="form-control md-1" name="partidos">
                         <a class="dropdown-item" href="#">DEM</a>
                             <option>Todos</option>
                             <option>AVANTE</option>
@@ -72,31 +73,34 @@
                     </select>
                   </div>
                  <div class="form-group">
-                    <button type="submit" class="btn btn-default ml-2">Ordenar</button>
+                    <button type="submit" class="btn btn-default ml-2">Buscar</button>
                  </div>
                 </form>
-                    
-                <table class="table table-hover table-sm" id="example">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Partido</th>
-                            <th scope="col">Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="deputado" items="${deputados}">
-                                <tr>
-                                    <td scope='row'>${deputado.nome}</td>
-                                    <td scope='row'>${deputado.partido}</td>
-                                    <td scope='row'>${deputado.uf}</td>
-                                </tr>
-                            </c:forEach>
-                    </tbody>
-                </table>
+
+                    <form>
+                        <table class="table table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Partido</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        <c:forEach var="deputados" items="${deputados}">
+                            <tr>
+                                <td><a href='<c:url value="/faces/fichaParlamentar?nome=${deputados.nome}"/>' class="alert-link-link">${deputados.nome}</a></td>
+                                <td>${deputados.partido}</td>
+                                <td>${deputados.uf}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </form>
             </div>
         </div>
-        <%@include file="quemSomos.jsp" %>
+       <!-- <%@include file="quemSomos.jsp" %> -->
     <script src="../../../PoliticoNaMao/resources/js/deputados.js"></script>
     <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
     <script src="../../../PoliticoNaMao/resources/node_modules/popper.js/dist/umd/popper.js"></script>
