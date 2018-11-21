@@ -24,10 +24,9 @@
         <%@include file="barraMenu.jsp" %>
         <div class="ml-1 mt-2">
 
-            <div class="container">
                 <h5 class="display-5">Deputados</h5>
                 <form action="DeputadoServlet" class="form-row" method="GET">
-                 <p class="form-group mr-2 mt-2">Estados</p>
+                 <p class="form-group mr-2 mt-2 ml-2">Estados</p>
                   <div class="form-group">
                     <select class="form-control md-1" name="estados">
                         <option>Todos</option>
@@ -44,7 +43,7 @@
                             %>
                     </select>
                   </div>
-                 <p class="form-group ml-2 mr-2">Partidos</p>
+                 <p class="form-group ml-2 mr-2 mt-2">Partidos</p>
                     <div class="form-group">
                     <select class="form-control md-1" name="partidos">
                         <a class="dropdown-item" href="#">DEM</a>
@@ -76,30 +75,31 @@
                     <button type="submit" class="btn btn-default ml-2">Buscar</button>
                  </div>
                 </form>
+                   
+                    <div class="md-12">
+                        <form>
+                            <table class="table table-hover table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Partido</th>
+                                    <th scope="col">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                    <form>
-                        <table class="table table-hover table-sm">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Partido</th>
-                                <th scope="col">Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        <c:forEach var="deputados" items="${deputados}">
-                            <tr>
-                                <td><a href='<c:url value="/faces/fichaParlamentar?nome=${deputados.nome}"/>' class="alert-link-link">${deputados.nome}</a></td>
-                                <td>${deputados.partido}</td>
-                                <td>${deputados.uf}</td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </form>
+                            <c:forEach var="deputados" items="${deputados}">
+                                <tr>
+                                    <td><a href='<c:url value="/faces/fichaParlamentar?nome=${deputados.nome}"/>' class="alert-link-link">${deputados.nome}</a></td>
+                                    <td>${deputados.partido}</td>
+                                    <td>${deputados.uf}</td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
             </div>
-        </div>
        <!-- <%@include file="quemSomos.jsp" %> -->
     <script src="../../../PoliticoNaMao/resources/js/deputados.js"></script>
     <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
