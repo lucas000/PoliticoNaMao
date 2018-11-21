@@ -41,9 +41,25 @@ public class DeputadoServlet extends HttpServlet {
         String partido = request.getParameter("partidos");
         
         TesteQueriesDeputados d = new TesteQueriesDeputados();
-        request.setAttribute("deputados", d.buscaDeputados());
         
-        request.getRequestDispatcher("deputados.jsp").forward(request, response);
+        request.setAttribute("deputados", d.buscaDeputados());
+        if (estado.equals("Todos") && partido.equals("Todos")) {
+            request.setAttribute("deputados", d.buscaDeputados());
+        
+            request.getRequestDispatcher("deputados.jsp").forward(request, response);
+        } else if(estado.equals("Todos") && !"Todos".equals(partido)){
+            request.setAttribute("deputados", d.buscaDeputadosPorPartido(partido));
+        
+            request.getRequestDispatcher("deputados.jsp").forward(request, response);
+        } else if(!"Todos".equals(estado) && partido.equals("Todos")){
+            request.setAttribute("deputados", d.buscaDeputadosPorEstado(estado));
+        
+            request.getRequestDispatcher("deputados.jsp").forward(request, response);
+        } else if(!"Todos".equals(estado) && !"Todos".equals(partido)){
+            request.setAttribute("deputados", d.buscaPorPartidoEstado(estado, partido));
+        
+            request.getRequestDispatcher("deputados.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -59,16 +75,6 @@ public class DeputadoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        String estado = request.getParameter("estados");
-        String partido = request.getParameter("partidos");
-        
-        System.out.println("Estado: " + estado + "Partido: " + partido);
-        
-        TesteQueriesDeputados d = new TesteQueriesDeputados();
-        request.setAttribute("deputados", d.buscaPorPartidoEstado(estado, partido));
-        
-        request.getRequestDispatcher("deputados.jsp").forward(request, response);
     }
 
     /**
