@@ -3,10 +3,13 @@
     Created on : 10/11/2018, 21:13:05
     Author     : Lucas
 --%>
+<%@page import="Consultas.TesteQueriesDeputados"%>
+<%@page import="Modelos.Estado"%>
 <%@page import="Modelos.Partidos "%>
 <%@page import="java.util.List"%>
 <%@page import="Consultas.TesteQueriesPartidos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,33 +26,37 @@
             <div class="container">
                 <h5 class="display-5">Partidos</h5>
                 <p>Filtrar por:</p>
-                <table class="table table-hover table-sm" id="example">
-                    <thead>
-                        <tr>
-                            <th scope="col">Sigla</th>
+                <form action="PartidoServlet" class="form-row" method="GET">
+                     <div class="form-group">
+                        <button type="submit" class="btn btn-default ml-2">Buscar</button>
+                     </div>
+                </form>
+                    
+                    <div class="md-12">
+                        <form>
+                            <table class="table table-hover table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sigla</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Uri</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                            <%
-                                TesteQueriesPartidos query = new TesteQueriesPartidos();
-                                
-                                List<Partidos> partidos = query.buscaPartidos();
-                                
-                                for (Object partido : partidos) {
-                                    Partidos d = (Partidos) partido;
-                                    
-                                    out.print("<tr id='" + d.getId()+ "'>");
-                                    out.print("<td Sigla='row'>" + d.getSigla()+ "</td>");
-                                    out.print("<td Nome='row'>" + d.getNome() + "</td>");
-                                    out.print("<td URI='row'>" + d.getUri()+ "</td>");
-                                    out.print("</tr>");
-                                }
-                            %>
-                    </tbody>
-                </table>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            <c:forEach var="partidos" items="${partidos}">
+                                <tr>
+                                    <td><a href='<c:url value="/faces/DeputadoServlet?estados=Todos&partidos=${partidos.sigla}"/>' class="alert-link-link">${partidos.sigla}</a></td>
+                                    <td>${partidos.nome}</td>
+                                    <td>${partidos.uri}</td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+                    
+                  
             </div>
         </div>
 
