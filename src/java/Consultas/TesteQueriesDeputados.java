@@ -34,12 +34,13 @@ public class TesteQueriesDeputados {
         
     }
     
-    public List<Deputados> buscaDeputadosPorNome(){
+    public Deputados buscaDeputadosPorNome(String nome){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE E.nome=:NOME");
-        List deputados = query.getResultList();
+        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.nome=:nome");
+        query.setParameter("nome", nome);
+        Deputados deputados = (Deputados) query.getSingleResult();
         
         return deputados;
         
@@ -57,8 +58,46 @@ public class TesteQueriesDeputados {
     public List<Deputados> buscaPorPartidoEstado(String estado, String partido){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
         EntityManager manager = factory.createEntityManager();
-        System.out.println("Em buscaporordenacaoDeputado: " + estado + "Partido: " + partido);
-        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.uf='GO' and e.partido = 'PT'");
+        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.uf=:estado and e.partido =:partido");
+        query.setParameter("estado", estado);
+        query.setParameter("partido", partido);
+        
+        List deputados = query.getResultList();
+        
+        return deputados;
+        
+    }
+    
+    public List<Deputados> buscaPorEstado(String estado){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManager manager = factory.createEntityManager();
+        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.uf=:estado");
+        query.setParameter("estado", estado);
+        
+        List deputados = query.getResultList();
+        
+        return deputados;
+        
+    }
+    
+    public List<Deputados> buscaDeputadosPorPartido(String partido){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManager manager = factory.createEntityManager();
+        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.partido=:partido");
+        query.setParameter("partido", partido);
+        
+        List deputados = query.getResultList();
+        
+        return deputados;
+        
+    }
+    
+    public List<Deputados> buscaDeputadosPorEstado(String estado){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManager manager = factory.createEntityManager();
+        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.uf=:estado");
+        query.setParameter("estado", estado);
+        
         List deputados = query.getResultList();
         
         return deputados;
