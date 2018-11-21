@@ -16,7 +16,7 @@
     <body>
         <%@include file="barraMenu.jsp" %>
         <div align="center">
-            <h5 class="display-5 mt-3">Propostas</h5>
+            <h5 class="display-5 mt-3">Propostasjhhj</h5>
         </div>
         <%@include file="quemSomos.jsp" %>
         <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
