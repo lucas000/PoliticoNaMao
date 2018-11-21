@@ -42,8 +42,7 @@ public class PartidoServlet extends HttpServlet {
         request.setAttribute("partidos", d.buscaPartidos());
         
             
-        
-            request.getRequestDispatcher("partidos.jsp").forward(request, response);
+        request.getRequestDispatcher("partidos.jsp").forward(request, response);
          
     }
 

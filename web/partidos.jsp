@@ -26,11 +26,13 @@
             <div class="container">
                 <h5 class="display-5">Partidos</h5>
                 <p>Filtrar por:</p>
+                
                 <form action="PartidoServlet" class="form-row" method="GET">
                      <div class="form-group">
                         <button type="submit" class="btn btn-default ml-2">Buscar</button>
                      </div>
                 </form>
+               
                     
                     <div class="md-12">
                         <form>
