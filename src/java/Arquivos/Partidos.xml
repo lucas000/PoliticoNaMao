@@ -90,23 +90,157 @@
       <nome>Partido Progressista</nome>
       <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36809</uri>
     </partido_>
+    <partido_>
+      <id>36762</id>
+      <sigla>PPL</sigla>
+      <nome>Partido Pátria Livre</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36762</uri>
+    </partido_>
+    <partido_>
+      <id>36813</id>
+      <sigla>PPS</sigla>
+      <nome>Partido Popular Socialista</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36813</uri>
+    </partido_>
+    <partido_>
+      <id>36814</id>
+      <sigla>PR</sigla>
+      <nome>Partido da República</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36814</uri>
+    </partido_>
+    <partido_>
+      <id>36815</id>
+      <sigla>PRB</sigla>
+      <nome>Partido Republicano Brasileiro</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36815</uri>
+    </partido_>
+    <partido_>
+      <id>36763</id>
+      <sigla>PROS</sigla>
+      <nome>Partido Republicano da Ordem Social</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36763</uri>
+    </partido_>
+    <partido_>
+      <id>36824</id>
+      <sigla>PRP</sigla>
+      <nome>Partido Republicano Progressista</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36824</uri>
+    </partido_>
+    <partido_>
+      <id>36829</id>
+      <sigla>PRTB</sigla>
+      <nome>Partido Renovador Trabalhista Brasileiro</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36829</uri>
+    </partido_>
+    <partido_>
+      <id>36832</id>
+      <sigla>PSB</sigla>
+      <nome>Partido Socialista Brasileiro</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36832</uri>
+    </partido_>
+    <partido_>
+      <id>36833</id>
+      <sigla>PSC</sigla>
+      <nome>Partido Social Cristão</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36833</uri>
+    </partido_>
+    <partido_>
+      <id>36834</id>
+      <sigla>PSD</sigla>
+      <nome>Partido Social Democrático</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36834</uri>
+    </partido_>
+    <partido_>
+      <id>36835</id>
+      <sigla>PSDB</sigla>
+      <nome>Partido da Social Democracia Brasileira</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36835</uri>
+    </partido_>
+    <partido_>
+      <id>36836</id>
+      <sigla>PSDC</sigla>
+      <nome>Partido Social Democrata Cristão</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36836</uri>
+    </partido_>
+    <partido_>
+      <id>36837</id>
+      <sigla>PSL</sigla>
+      <nome>Partido Social Liberal</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36837</uri>
+    </partido_>
+    <partido_>
+      <id>36839</id>
+      <sigla>PSOL</sigla>
+      <nome>Partido Socialismo e Liberdade</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36839</uri>
+    </partido_>
+    <partido_>
+      <id>36844</id>
+      <sigla>PT</sigla>
+      <nome>Partido dos Trabalhadores</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36844</uri>
+    </partido_>
+    <partido_>
+      <id>36845</id>
+      <sigla>PTB</sigla>
+      <nome>Partido Trabalhista Brasileiro</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36845</uri>
+    </partido_>
+    <partido_>
+      <id>36846</id>
+      <sigla>PTC</sigla>
+      <nome>Partido Trabalhista Cristão</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36846</uri>
+    </partido_>
+    <partido_>
+      <id>36847</id>
+      <sigla>PTdoB</sigla>
+      <nome>Partido Trabalhista do Brasil</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36847</uri>
+    </partido_>
+    <partido_>
+      <id>36848</id>
+      <sigla>PTN</sigla>
+      <nome>Partido Trabalhista Nacional</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36848</uri>
+    </partido_>
+    <partido_>
+      <id>36851</id>
+      <sigla>PV</sigla>
+      <nome>Partido Verde</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36851</uri>
+    </partido_>
+    <partido_>
+      <id>36886</id>
+      <sigla>REDE</sigla>
+      <nome>Rede Sustentabilidade</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36886</uri>
+    </partido_>
+    <partido_>
+      <id>36852</id>
+      <sigla>S.PART.</sigla>
+      <nome>Sem Partido</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36852</uri>
+    </partido_>
+    <partido_>
+      <id>36765</id>
+      <sigla>SD</sigla>
+      <nome>Solidariedade</nome>
+      <uri>https://dadosabertos.camara.leg.br/api/v2/partidos/36765</uri>
+    </partido_>
   </dados>
   <links>
     <link>
       <rel>self</rel>
-      <href>https://dadosabertos.camara.leg.br/api/v2/partidos?ordem=ASC&amp;ordenarPor=sigla</href>
-    </link>
-    <link>
-      <rel>next</rel>
-      <href>https://dadosabertos.camara.leg.br/api/v2/partidos?ordem=ASC&amp;ordenarPor=sigla&amp;pagina=2&amp;itens=15</href>
+      <href>https://dadosabertos.camara.leg.br/api/v2/partidos?itens=50&amp;ordem=ASC&amp;ordenarPor=sigla</href>
     </link>
     <link>
       <rel>first</rel>
-      <href>https://dadosabertos.camara.leg.br/api/v2/partidos?ordem=ASC&amp;ordenarPor=sigla&amp;pagina=1&amp;itens=15</href>
+      <href>https://dadosabertos.camara.leg.br/api/v2/partidos?&amp;ordem=ASC&amp;ordenarPor=sigla&amp;pagina=1&amp;itens=50</href>
     </link>
     <link>
       <rel>last</rel>
-      <href>https://dadosabertos.camara.leg.br/api/v2/partidos?ordem=ASC&amp;ordenarPor=sigla&amp;pagina=3&amp;itens=15</href>
+      <href>https://dadosabertos.camara.leg.br/api/v2/partidos?&amp;ordem=ASC&amp;ordenarPor=sigla&amp;pagina=1&amp;itens=50</href>
     </link>
   </links>
 </xml>

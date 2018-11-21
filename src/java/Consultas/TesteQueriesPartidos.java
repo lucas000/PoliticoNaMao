@@ -23,7 +23,7 @@ public class TesteQueriesPartidos {
      */
     
     public List<Partidos> buscaPartidos(){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Partidos");
         EntityManager manager = factory.createEntityManager();
 
         Query query = manager.createQuery("SELECT e FROM Partidos e");
