@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,10 +26,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto"> 
                     <li class="nav-item">
-                        <a class="nav-link" href="deputados.jsp">Deputados</a> 
+                        <a class="nav-link" href='<c:url value="/faces/DeputadoServlet?estados=Todos&partidos=Todos"/>'>Deputados</a> 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="partidos.jsp">Partidos</a> 
+                        <a class="nav-link" href='<c:url value="/faces/PartidoServlet"/>'>Partidos</a>
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link" href="propostas.jsp">Proposições</a> 
