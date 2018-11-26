@@ -5,6 +5,7 @@
  */
 package Persistencia;
 
+import Modelos.FichaPartidos;
 import Modelos.Partidos;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,11 +15,11 @@ import javax.persistence.Persistence;
  *
  * @author Allan
  */
-public class PartidosDAO {
-    EntityManagerFactory partidos = Persistence.createEntityManagerFactory("Partidos");
+public class FichaPartidosDAO {
+    EntityManagerFactory partidos = Persistence.createEntityManagerFactory("FichaPartidos");
     EntityManager manager = partidos.createEntityManager();
     
-    public void addPartido(Partidos partido){
+    public void addFichaPartido(FichaPartidos partido){
         manager.getTransaction().begin();
         manager.persist(partido);
         manager.getTransaction().commit();
@@ -27,4 +28,5 @@ public class PartidosDAO {
     public void fechaConexao(){
         manager.close();
     }
+    
 }

@@ -19,10 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Lucas
+ * @author Allan
  */
-@WebServlet(name = "fichaParlamentar", urlPatterns = {"/fichaParlamentar"})
-public class FichaParlamentarServlet extends HttpServlet {
+@WebServlet(name = "FichaPartidoServlet", urlPatterns = {"/FichaPartidoServlet"})
+public class FichaPartidoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,6 +44,7 @@ public class FichaParlamentarServlet extends HttpServlet {
         request.setAttribute("fpartidoss", d);
         
         request.getRequestDispatcher("fichaParlamentar.jsp").forward(request, response);
+  
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
