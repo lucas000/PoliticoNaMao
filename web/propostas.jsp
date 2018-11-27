@@ -18,6 +18,11 @@
         <div align="center">
             <h5 class="display-5 mt-3">Propostasjhhj</h5>
         </div>
+        
+        <form action="ProposicaoServlet" method="post">
+            <input type="submit" value="Mostrar">
+        </form>
+        
         <%@include file="quemSomos.jsp" %>
         <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
     <script src="../../../PoliticoNaMao/resources/node_modules/popper.js/dist/umd/popper.js"></script>
