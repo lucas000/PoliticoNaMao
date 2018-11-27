@@ -6,7 +6,9 @@
 package Servlet;
 
 import Consultas.TesteQueriesDeputados;
+import Consultas.TesteQueriesFichaPartidos;
 import Modelos.Deputados;
+import Modelos.FichaPartidos;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

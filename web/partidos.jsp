@@ -25,23 +25,18 @@
 
             <div class="container">
                 <h5 class="display-5">Partidos</h5>
-                <p>Filtrar por:</p>
-                
-                <form action="PartidoServlet" class="form-row" method="GET">
-                     <div class="form-group">
-                        <button type="submit" class="btn btn-default ml-2">Buscar</button>
-                     </div>
-                </form>
                
-                    
-                    <div class="md-12">
+                
+                           
+                     <div class="md-12">
                         <form>
                             <table class="table table-hover table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col">Sigla</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Uri</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Informações</th>
+                            
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,8 +45,8 @@
                                 <tr>
                                     <td><a href='<c:url value="/faces/DeputadoServlet?estados=Todos&partidos=${partidos.sigla}"/>' class="alert-link-link">${partidos.sigla}</a></td>
                                     <td>${partidos.nome}</td>
-                                    <td>${partidos.uri}</td>
-                                </tr>
+                                    <td><a href='<c:url value="/faces/FichaPartidoServlet?nome=${partidos.nome}"/>' class="alert-link-link">Info</a></td>
+                                 </tr>
                             </c:forEach>
                             </tbody>
                         </table>

@@ -19,7 +19,6 @@
       <property name="hibernate.hbm2ddl.auto" value="update"/>
     </properties>
   </persistence-unit>
-  
   <persistence-unit name="Estado">
     <!-- provedor/implementacao do JPA -->
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
@@ -39,7 +38,7 @@
       <property name="hibernate.hbm2ddl.auto" value="update"/>
     </properties>
   </persistence-unit>
- <persistence-unit name="Partidos">
+  <persistence-unit name="Partidos">
     <!-- provedor/implementacao do JPA -->
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <!-- entidade mapeada -->
@@ -58,12 +57,11 @@
       <property name="hibernate.hbm2ddl.auto" value="update"/>
     </properties>
   </persistence-unit>
-  
-  <persistence-unit name="DespesasCotaExercicioAtividadeParlamentar_1">
+  <persistence-unit name="FichaPartidos">
     <!-- provedor/implementacao do JPA -->
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <!-- entidade mapeada -->
-    <class>Modelos.DespesasCotaExercicioAtividadeParlamentar_1</class>
+    <class>Modelos.FichaPartidos</class>
     <properties>
       <!-- dados da conexao -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
