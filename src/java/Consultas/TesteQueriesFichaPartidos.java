@@ -34,9 +34,9 @@ public class TesteQueriesFichaPartidos {
 
         Query query = manager.createQuery("SELECT e FROM FichaPartidos e WHERE e.nome=:nome");
         query.setParameter("nome", nome);
-        FichaPartidos fpartidos = (FichaPartidos) query.getSingleResult();
+        FichaPartidos fpartidoss = (FichaPartidos) query.getSingleResult();
         
-        return fpartidos;
+        return fpartidoss;
         
     }
     

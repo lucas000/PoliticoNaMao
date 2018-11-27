@@ -18,16 +18,36 @@
         <%@include file="barraMenu.jsp" %>
         
         <div class="mt-3 ml-2 mr-2">
+            
+            <div class="card-deck">
+                <div class="card">
+                <img class="card-img-top" src='${fpartidoss.urlLogo}' alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Nome: ${fpartidoss.nome}</p>
+                    <p class="card-text">Sigla/UF: ${fpartidoss.sigla}/${fpartidoss.uf}</p>
+                    <p class="card-text">Situação atual: ${fpartidoss.situacao}</p>
+                    <p class="card-text">Quantidade de Membros: ${fpartidoss.totalMembros}</p>
+                 </div>
+            </div>
+       
+          
+                 
+        <div class="card">
+                 <div class="mt-3 ml-2 mr-2">
             <div class="card-deck">
                 <div class="card">
                 <img class="card-img-top" src='${fpartidoss.urlFoto}' alt="Card image cap">
                 <div class="card-body">
-                    <p class="card-text">Nome: ${fpartidoss.nome}</p>
-                    <p class="card-text">Partido/Estado: ${fpartidoss.partido}/${fpartidoss.uf}</p>
+                   <p>Nome:  <a href='<c:url value="/faces/fichaParlamentar?nome=${fpartidoss.nomel}"/>' class="alert-link-link">${fpartidoss.nomel}</a></p>
+                    <p class="card-text">Cargo: Lider do Partido</p>
+                   
                  </div>
             </div>
        
           </div>
+        </div>
+        </div>
+                    </div>
         </div>
         <br>
         <%@include file="quemSomos.jsp" %>

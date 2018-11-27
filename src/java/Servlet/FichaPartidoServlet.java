@@ -43,7 +43,7 @@ public class FichaPartidoServlet extends HttpServlet {
         FichaPartidos d = (FichaPartidos) teste.buscaFichaPartidosPor(nome);
         request.setAttribute("fpartidoss", d);
         
-        request.getRequestDispatcher("fichaParlamentar.jsp").forward(request, response);
+        request.getRequestDispatcher("fichapartidos.jsp").forward(request, response);
   
     }
 

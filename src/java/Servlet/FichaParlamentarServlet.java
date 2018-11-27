@@ -39,9 +39,9 @@ public class FichaParlamentarServlet extends HttpServlet {
         
         String nome = request.getParameter("nome");
         
-        TesteQueriesFichaPartidos teste = new TesteQueriesFichaPartidos();
-        FichaPartidos d = (FichaPartidos) teste.buscaFichaPartidosPor(nome);
-        request.setAttribute("fpartidoss", d);
+        TesteQueriesDeputados teste = new TesteQueriesDeputados();
+        Deputados d = (Deputados) teste.buscaDeputadosPorNome(nome);
+        request.setAttribute("deputadoss", d);
         
         request.getRequestDispatcher("fichaParlamentar.jsp").forward(request, response);
     }

@@ -20,13 +20,14 @@ public class FichaPartidos {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
+    private String nome;
     private String data;
     private String idLegislatura ;
     private String situacao;
     private String totalPosse;
     private String totalMembros;
     private String uri;
-    private String nome;
+    private String nomel;
     private String sigla;
     private String siglaPartido;
     private String uriPartido;
@@ -37,17 +38,16 @@ public class FichaPartidos {
     public FichaPartidos() {
     }
 
-    
-    
-    public FichaPartidos(int id, String data, String idLegislatura, String situacao, String totalPosse, String totalMembros, String uri, String nome, String sigla, String siglaPartido, String uriPartido, String uf, String urlFoto, String urlLogo) {
+    public FichaPartidos(int id, String nome, String data, String idLegislatura, String situacao, String totalPosse, String totalMembros, String uri, String nomel, String sigla, String siglaPartido, String uriPartido, String uf, String urlFoto, String urlLogo) {
         this.id = id;
+        this.nome = nome;
         this.data = data;
         this.idLegislatura = idLegislatura;
         this.situacao = situacao;
         this.totalPosse = totalPosse;
         this.totalMembros = totalMembros;
         this.uri = uri;
-        this.nome = nome;
+        this.nomel = nomel;
         this.sigla = sigla;
         this.siglaPartido = siglaPartido;
         this.uriPartido = uriPartido;
@@ -62,6 +62,14 @@ public class FichaPartidos {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getData() {
@@ -112,12 +120,12 @@ public class FichaPartidos {
         this.uri = uri;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomel() {
+        return nomel;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomel(String nomel) {
+        this.nomel = nomel;
     }
 
     public String getSigla() {
@@ -170,8 +178,8 @@ public class FichaPartidos {
 
     @Override
     public String toString() {
-        return "FichaPartidos{" + "id=" + id + ", data=" + data + ", idLegislatura=" + idLegislatura + ", situacao=" + situacao + ", totalPosse=" + totalPosse + ", totalMembros=" + totalMembros + ", uri=" + uri + ", nome=" + nome + ", sigla=" + sigla + ", siglaPartido=" + siglaPartido + ", uriPartido=" + uriPartido + ", uf=" + uf + ", urlFoto=" + urlFoto + ", urlLogo=" + urlLogo + '}';
+        return "FichaPartidos{" + "id=" + id + ", nome=" + nome + ", data=" + data + ", idLegislatura=" + idLegislatura + ", situacao=" + situacao + ", totalPosse=" + totalPosse + ", totalMembros=" + totalMembros + ", uri=" + uri + ", nomel=" + nomel + ", sigla=" + sigla + ", siglaPartido=" + siglaPartido + ", uriPartido=" + uriPartido + ", uf=" + uf + ", urlFoto=" + urlFoto + ", urlLogo=" + urlLogo + '}';
     }
-    
-    
+
+       
 }

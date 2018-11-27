@@ -16,7 +16,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36898
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/160510
 </uri>
-<nome>LUIS TIBÉ</nome>
+<nomel>LUIS TIBÉ</nomel>
 <siglaPartido>AVANTE</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36898
@@ -52,7 +52,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36769
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/88950
 </uri>
-<nome>RODRIGO GARCIA</nome>
+<nomel>RODRIGO GARCIA</nomel>
 <siglaPartido>DEM</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36769
@@ -88,7 +88,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36899
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/178975
 </uri>
-<nome>BALEIA ROSSI</nome>
+<nomel>BALEIA ROSSI</nomel>
 <siglaPartido>MDB</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36899
@@ -124,7 +124,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/37900
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/178885
 </uri>
-<nome>JUNIOR MARRECA</nome>
+<nomel>JUNIOR MARRECA</nomel>
 <siglaPartido>PATRI</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/37900
@@ -160,7 +160,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36779
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/178987
 </uri>
-<nome>ORLANDO SILVA</nome>
+<nomel>ORLANDO SILVA</nomel>
 <siglaPartido>PCdoB</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36779
@@ -196,7 +196,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36786
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/167493
 </uri>
-<nome>WEVERTON ROCHA</nome>
+<nomel>WEVERTON ROCHA</nomel>
 <siglaPartido>PDT</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36786
@@ -232,7 +232,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36793
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/146788
 </uri>
-<nome>MARCELO ARO</nome>
+<nomel>MARCELO ARO</nomel>
 <siglaPartido>PHS</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36793
@@ -268,7 +268,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36896
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/178929
 </uri>
-<nome>DIEGO GARCIA</nome>
+<nomel>DIEGO GARCIA</nomel>
 <siglaPartido>PODE</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36896
@@ -304,7 +304,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36809
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/160541
 </uri>
-<nome>ARTHUR LIRA</nome>
+<nomel>ARTHUR LIRA</nomel>
 <siglaPartido>PP</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36809
@@ -340,7 +340,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36762
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/178863
 </uri>
-<nome>ULDURICO JUNIOR</nome>
+<nomel>ULDURICO JUNIOR</nomel>
 <siglaPartido>PPL</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36762
@@ -376,7 +376,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36813
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/178972
 </uri>
-<nome>ALEX MANENTE</nome>
+<nomel>ALEX MANENTE</nomel>
 <siglaPartido>PPS</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36813
@@ -412,7 +412,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36814
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/74554
 </uri>
-<nome>JOSÉ ROCHA</nome>
+<nomel>JOSÉ ROCHA</nomel>
 <siglaPartido>PR</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36814
@@ -448,7 +448,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36815
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/73441
 </uri>
-<nome>CELSO RUSSOMANNO</nome>
+<nomel>CELSO RUSSOMANNO</nomel>
 <siglaPartido>PRB</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36815
@@ -484,7 +484,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36763
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/141430
 </uri>
-<nome>FELIPE BORNIER</nome>
+<nomel>FELIPE BORNIER</nomel>
 <siglaPartido>PROS</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36763
@@ -520,7 +520,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36832
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/178922
 </uri>
-<nome>TADEU ALENCAR</nome>
+<nomel>TADEU ALENCAR</nomel>
 <siglaPartido>PSB</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36832
@@ -556,7 +556,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36833
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/74270
 </uri>
-<nome>GILBERTO NASCIMENTO</nome>
+<nomel>GILBERTO NASCIMENTO</nomel>
 <siglaPartido>PSC</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36833
@@ -592,7 +592,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36834
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/143632
 </uri>
-<nome>DOMINGOS NETO</nome>
+<nomel>DOMINGOS NETO</nomel>
 <siglaPartido>PSD</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36834
@@ -628,7 +628,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36835
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/166401
 </uri>
-<nome>NILSON LEITÃO</nome>
+<nomel>NILSON LEITÃO</nomel>
 <siglaPartido>PSDB</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36835
@@ -664,7 +664,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36837
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/92346
 </uri>
-<nome>EDUARDO BOLSONARO</nome>
+<nomel>EDUARDO BOLSONARO</nomel>
 <siglaPartido>PSL</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36837
@@ -700,7 +700,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36839
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/74171
 </uri>
-<nome>CHICO ALENCAR</nome>
+<nomel>CHICO ALENCAR</nomel>
 <siglaPartido>PSOL</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36839
@@ -736,7 +736,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36844
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/141470
 </uri>
-<nome>JOSÉ GUIMARÃES</nome>
+<nomel>JOSÉ GUIMARÃES</nomel>
 <siglaPartido>PT</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36844
@@ -772,7 +772,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36845
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/73666
 </uri>
-<nome>JOVAIR ARANTES</nome>
+<nomel>JOVAIR ARANTES</nomel>
 <siglaPartido>PTB</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36845
@@ -808,7 +808,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36851
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/178832
 </uri>
-<nome>LEANDRE</nome>
+<nomel>LEANDRE</nomel>
 <siglaPartido>PV</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36851
@@ -844,7 +844,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36886
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/178965
 </uri>
-<nome>JOÃO DERLY</nome>
+<nomel>JOÃO DERLY</nomel>
 <siglaPartido>REDE</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36886
@@ -880,7 +880,7 @@ https://dadosabertos.camara.leg.br/api/v2/partidos/36765
 <uri>
 https://dadosabertos.camara.leg.br/api/v2/deputados/73930
 </uri>
-<nome>WLADIMIR COSTA</nome>
+<nomel>WLADIMIR COSTA</nomel>
 <siglaPartido>SD</siglaPartido>
 <uriPartido>
 https://dadosabertos.camara.leg.br/api/v2/partidos/36765

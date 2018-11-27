@@ -52,6 +52,8 @@ public class FichaPartidosDOM {
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
                 Element elem = (Element) nNode;
+                Node node0 = elem.getElementsByTagName("nome").item(0);
+                String nome = node0.getTextContent();
 
                 Node node1 = elem.getElementsByTagName("data").item(0);
                 String data = node1.getTextContent();
@@ -72,8 +74,8 @@ public class FichaPartidosDOM {
                 Node node7 = elem.getElementsByTagName("uri").item(0);
                 String uri = node7.getTextContent();
 
-                Node node8 = elem.getElementsByTagName("nome").item(0);
-                String nome = node8.getTextContent();
+                Node node8 = elem.getElementsByTagName("nomel").item(0);
+                String nomel = node8.getTextContent();
                 
                 Node node9 = elem.getElementsByTagName("sigla").item(0);
                 String sigla = node9.getTextContent();
@@ -95,6 +97,7 @@ public class FichaPartidosDOM {
                 
                 FichaPartidos fpartidos = new FichaPartidos();
                 
+                fpartidos.setNome(nome);
                 fpartidos.setData(data);
                 fpartidos.setIdLegislatura(idLegislatura);
                 fpartidos.setSituacao(situacao);
@@ -102,7 +105,7 @@ public class FichaPartidosDOM {
                 fpartidos.setTotalMembros(totalMembros);
                 
                 fpartidos.setUri(uri);
-                fpartidos.setNome(nome);
+                fpartidos.setNomel(nomel);
                 fpartidos.setSigla(sigla);
                 fpartidos.setSiglaPartido(siglaPartido);
                 fpartidos.setUriPartido(uriPartido);
