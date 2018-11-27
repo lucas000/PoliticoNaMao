@@ -6,9 +6,7 @@
 package Servlet;
 
 import Consultas.TesteQueriesDeputados;
-import Consultas.TesteQueriesFichaPartidos;
 import Modelos.Deputados;
-import Modelos.FichaPartidos;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,14 +35,17 @@ public class FichaParlamentarServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         String nome = request.getParameter("nome");
-
-        System.out.println("Nome passado: " + nome);
+        
+        System.out.println("Nome normal: " + nome);
+        String novoNome = new String(nome.getBytes("UTF-8"), "UTF-8");
+        System.out.println("Nome charsetado: " + novoNome);
         TesteQueriesDeputados teste = new TesteQueriesDeputados();
 
         Deputados d = (Deputados) teste.buscaDeputadosPorNome(nome);
         
         request.setAttribute("deputadoss", d);
         request.setAttribute("gastodeputado", teste.buscaGastosTotaisDeputado(nome));
+        request.setAttribute("projetosDeputado", teste.buscaPropostasPorDeputado(nome));
         
         request.getRequestDispatcher("fichaParlamentar.jsp").forward(request, response);
     }
