@@ -23,7 +23,7 @@
                 <div class="col-sm-8">
                 <div class="card-deck">
                     <div class="card">
-                    <img class="card-img-top" src='${deputadoss.urlFoto}' alt="Card image cap">
+                    <img class="card-img-top" src='${deputadoss.urlFoto}' alt="Foto deputado">
                     <div class="card-body">
                         <p class="card-text">Nome: ${deputadoss.nome}</p>
                         <p class="card-text">Partido: ${deputadoss.partido}</p>
@@ -44,7 +44,7 @@
                   <div class="card-body">
                       <h5 class="card-title">Informações</h5>
                       <hr>
-                      <p class="card-text">Total de gastos: ${gastodeputado}</p>
+                      <p class="card-text">Gastos: ${gastodeputado}</p>
                       <p class="card-text">Propostas: ${projetosDeputado} <a href="propostas.jsp">Ver propostas</a></p>
                       </div>
                 </div>
