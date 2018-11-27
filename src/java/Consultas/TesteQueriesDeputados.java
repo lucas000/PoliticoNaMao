@@ -6,6 +6,7 @@
 package Consultas;
 
 import Modelos.Deputados;
+import Modelos.DespesasCotaExercicioAtividadeParlamentar_1;
 import Modelos.Estado;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -34,11 +35,39 @@ public class TesteQueriesDeputados {
         
     }
     
+    public double buscaGastosTotaisDeputado(String nome){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("DespesasCotaExercicioAtividadeParlamentar_1");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT dcp FROM DespesasCotaExercicioAtividadeParlamentar_1 dcp where dcp.txNomeParlamentar=:nome");
+        query.setParameter("nome", nome);
+        
+        List gastos = query.getResultList();
+        double gastoTotal = 0.0;
+        for (Object deputado : gastos) {
+            DespesasCotaExercicioAtividadeParlamentar_1 est = (DespesasCotaExercicioAtividadeParlamentar_1) deputado;
+            System.out.println(est.toString());
+            gastoTotal+=est.getVlrdocumento();
+        }
+        return gastoTotal;
+    }
+    
+    public int buscaPropostasPorDeputado(String nome){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("DespesasCotaExercicioAtividadeParlamentar_1");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("select dcp from DespesasCotaExercicioAtividadeParlamentar_1 dcp");
+        
+        int gastos = query.getFirstResult();
+        
+        return gastos;
+    }
     public Deputados buscaDeputadosPorNome(String nome){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.nome=:nome");
+        System.out.println("Nome passdo no buscaDeputadosPorNome: " + nome);
+        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.nomeParlamentar=:nome");
         query.setParameter("nome", nome);
         Deputados deputados = (Deputados) query.getSingleResult();
         
