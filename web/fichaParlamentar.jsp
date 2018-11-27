@@ -25,9 +25,9 @@
                     <div class="card">
                     <img class="card-img-top" src='${deputadoss.urlFoto}' alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text">${deputadoss.nome}</p>
-                        <p class="card-text">${deputadoss.partido}/${deputadoss.uf}</p>
-                        <hr>
+                        <p class="card-text">Nome: ${deputadoss.nome}</p>
+                        <p class="card-text">Partido: ${deputadoss.partido}</p>
+                        <p class="card-text">Estado: ${deputadoss.uf}</p>
                         <p class="card-text">Anexo: ${deputadoss.anexo}</p>
                         <p class="card-text">Gabinete: ${deputadoss.gabinete}</p>
                      </div>
@@ -45,7 +45,7 @@
                       <h5 class="card-title">Informações</h5>
                       <hr>
                       <p class="card-text">Total de gastos: ${gastodeputado}</p>
-                      <p class="card-text">Propostas: 91 <a href="propostas.jsp">Ver propostas</a></p>
+                      <p class="card-text">Propostas: ${projetosDeputado} <a href="propostas.jsp">Ver propostas</a></p>
                       </div>
                 </div>
                       </div>
