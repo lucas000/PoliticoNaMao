@@ -39,5 +39,16 @@ public class TesteQueriesFichaPartidos {
         return fpartidoss;
         
     }
+    public FichaPartidos buscaFichaPartidosPorSigla(String sigla){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("FichaPartidos");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT e FROM FichaPartidos e WHERE e.sigla=:sigla");
+        query.setParameter("sigla", sigla);
+        FichaPartidos fpartidoss = (FichaPartidos) query.getSingleResult();
+        
+        return fpartidoss;
+        
+    }
     
 }

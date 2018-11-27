@@ -17,24 +17,31 @@
     <body>
         <%@include file="barraMenu.jsp" %>
         
-        <div class="mt-3 ml-2 mr-2">
-            
+        <div class="container mt-3">
+            <div class="col-sm-2"></div>
+                <div class="col-sm-8">
             <div class="card-deck">
+                <div class="card">
+                    <h5 class="card-title">Partido:</h5>
+                     <div class="mt-3 ml-2 mr-2">
                 <div class="card">
                 <img class="card-img-top" src='${fpartidoss.urlLogo}' alt="Card image cap">
                 <div class="card-body">
                     <p class="card-text">Nome: ${fpartidoss.nome}</p>
                     <p class="card-text">Sigla/UF: ${fpartidoss.sigla}/${fpartidoss.uf}</p>
                     <p class="card-text">Situação atual: ${fpartidoss.situacao}</p>
-                    <p class="card-text">Quantidade de Membros: ${fpartidoss.totalMembros}</p>
+                    <p class="card-text">Qtd. de Membros: ${fpartidoss.totalMembros}</p>
+                 </div>
+                 </div>
                  </div>
             </div>
        
           
                  
         <div class="card">
+            <h5 class="card-title">Lider:</h5>
                  <div class="mt-3 ml-2 mr-2">
-            <div class="card-deck">
+            
                 <div class="card">
                 <img class="card-img-top" src='${fpartidoss.urlFoto}' alt="Card image cap">
                 <div class="card-body">
@@ -44,10 +51,11 @@
                  </div>
             </div>
        
-          </div>
+          
         </div>
         </div>
                     </div>
+        </div>
         </div>
         <br>
         <%@include file="quemSomos.jsp" %>

@@ -28,9 +28,6 @@
                         <a class="nav-link" href='<c:url value="faces/DeputadoServlet?estados=Todos&partidos=Todos"/>'>Deputados</a> 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="partidos.jsp">Partidos</a> 
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href='<c:url value="/faces/PartidoServlet"/>'>Partidos</a>
                     </li> 
                     <li class="nav-item">

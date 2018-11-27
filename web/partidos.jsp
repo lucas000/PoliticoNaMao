@@ -45,7 +45,7 @@
                                 <tr>
                                     <td><a href='<c:url value="/faces/DeputadoServlet?estados=Todos&partidos=${partidos.sigla}"/>' class="alert-link-link">${partidos.sigla}</a></td>
                                     <td>${partidos.nome}</td>
-                                    <td><a href='<c:url value="/faces/FichaPartidoServlet?nome=${partidos.nome}"/>' class="alert-link-link">Info</a></td>
+                                    <td><a href='<c:url value="/faces/FichaPartidoServlet?sigla=${partidos.sigla}"/>' class="alert-link-link">Info</a></td>
                                  </tr>
                             </c:forEach>
                             </tbody>
