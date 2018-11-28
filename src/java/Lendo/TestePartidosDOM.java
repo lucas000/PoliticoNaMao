@@ -34,6 +34,7 @@ public class TestePartidosDOM {
             msg.append(e.toString());
             System.out.println(msg);
         }
+        
     }
     
 }
