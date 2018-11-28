@@ -37,10 +37,10 @@ public class FichaPartidoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String nome = request.getParameter("nome");
+        String sigla = request.getParameter("sigla");
         
         TesteQueriesFichaPartidos teste = new TesteQueriesFichaPartidos();
-        FichaPartidos d = (FichaPartidos) teste.buscaFichaPartidosPor(nome);
+        FichaPartidos d = (FichaPartidos) teste.buscaFichaPartidosPorSigla(sigla);
         request.setAttribute("fpartidoss", d);
         
         request.getRequestDispatcher("fichapartidos.jsp").forward(request, response);
