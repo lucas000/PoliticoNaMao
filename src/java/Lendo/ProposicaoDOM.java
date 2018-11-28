@@ -51,7 +51,7 @@ public class ProposicaoDOM {
 
             int quant = ProposicaoDOM.quantidade2018();
 
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i <quant; i++) {
                 linha = br.readLine();
                 linha = linha.replaceAll("\"", "");
                 Proposicao novo = new Proposicao();

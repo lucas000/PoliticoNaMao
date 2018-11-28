@@ -5,12 +5,9 @@
  */
 package Servlet;
 
+
 import Consultas.TesteQueriesProposicao;
-import Modelos.Proposicao;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,18 +33,23 @@ public class ProposicaoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProposicaoServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            
-            out.println("</body>");
-            out.println("</html>");
+        
+        
+        if(request.getParameter("ano") == null){
+            TesteQueriesProposicao d = new TesteQueriesProposicao();
+            request.setAttribute("proposicao", d.buscaProposicaoAno(2018));
         }
+        else{
+            int ano = Integer.parseInt(request.getParameter("ano"));
+            
+            TesteQueriesProposicao d = new TesteQueriesProposicao();
+            request.setAttribute("proposicao", d.buscaProposicaoAno(ano));
+            request.getRequestDispatcher("propostas.jsp").forward(request, response);
+        }
+       // 
+        
+        
+      // request.getRequestDispatcher("propostas.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

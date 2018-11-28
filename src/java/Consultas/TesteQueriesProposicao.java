@@ -34,4 +34,16 @@ public class TesteQueriesProposicao {
         
     }
     
+    
+       public List<Proposicao> buscaProposicaoAno(int ano){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Partidos");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT e FROM Proposicao e Where e.ano="+ano);
+        List proposicao = query.getResultList();
+        
+        return proposicao;
+        
+    }
+    
 }

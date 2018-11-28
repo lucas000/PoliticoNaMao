@@ -15,8 +15,9 @@ import java.text.ParseException;
  */
 public class TesteProposicao {
     public static void main(String[] args) throws ParseException, IOException {
-        ProposicaoDOM.lerPreposicao2018();//inserir Proposicoes 2018
+     //  ProposicaoDOM.lerPreposicao2018();//inserir Proposicoes 2018
        // Proposicao.lerPreposicoes(); //inserir Proposicoes 2000 a 2017
+       
     }
     
 }
