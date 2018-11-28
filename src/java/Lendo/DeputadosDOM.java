@@ -8,7 +8,11 @@ package Lendo;
 import Modelos.Deputados;
 import Persistencia.DeputadoDAO;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -23,10 +27,19 @@ import org.xml.sax.SAXException;
  * @author Lucas
  */
 public class DeputadosDOM {
-    public void fazerParsing(String pathArq) throws SAXException,
+    public void fazerParsing(InputStream pathArq) throws SAXException,
             IOException, ParserConfigurationException {
-
-        File xmlFile = new File(pathArq);
+        OutputStream outputStream = null;
+        //InputStream raw = new FileInputStream(new File(xml_file_path));
+        File file = new File("..\\PoliticoNaMao\\src\\java\\Arquivos\\DeputadosTitulares.xml");
+        outputStream = new FileOutputStream(file);
+        
+        int read = 0;
+        byte[] bytes = new byte[1024];
+        while ((read = pathArq.read(bytes)) != -1) {
+            outputStream.write(bytes, 0, read);
+        }
+        File xmlFile = new File("..\\PoliticoNaMao\\src\\java\\Arquivos\\DeputadosTitulares.xml");
         
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = factory.newDocumentBuilder();
@@ -110,7 +123,7 @@ public class DeputadosDOM {
                 deputado.setFone(fone);
                 deputado.setEmail(email);
                 
-                dao.addDeputado(deputado);
+                //dao.addDeputado(deputado);
                 System.out.println(deputado.toString());
                 
             } // end if
