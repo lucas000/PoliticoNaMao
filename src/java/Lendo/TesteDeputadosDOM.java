@@ -6,6 +6,10 @@
 package Lendo;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
@@ -18,23 +22,11 @@ public class TesteDeputadosDOM {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-
-        try {
-            DeputadosDOM myExampleDOM = new DeputadosDOM();
-       
-            // Imprimir os dados do arquivo
-            myExampleDOM.fazerParsing("..\\PoliticoNaMao\\src\\java\\Arquivos\\DeputadosTitulares.xml");
+    public static void main(String[] args) throws MalformedURLException, IOException, SAXException, ParserConfigurationException {
+        URL url = new URL("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterDeputados");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        InputStream content = connection.getInputStream();
         
-            // Contar a quantidade de paises
-            //System.out.printf("\nExistem %d países neste documento\n\n", myExampleSax.contadorPaises);       
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            StringBuffer msg = new StringBuffer();
-            msg.append("Erro:\n");
-            msg.append(e.getMessage() + "\n");
-            msg.append(e.toString());
-            System.out.println(msg);
-        }
+        new DeputadosDOM().fazerParsing(content);
     }
-    
 }

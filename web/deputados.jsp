@@ -58,6 +58,7 @@
                                 <select class="form-control md-1" name="partidos">
                                     <a class="dropdown-item" href="#">DEM</a>
                                     <option>Todos</option>
+                                    <option>DEM</option>
                                     <option>AVANTE</option>
                                     <option>MDB</option>
                                     <option>PATRI</option>
@@ -109,6 +110,7 @@
                             <c:forEach var="deputados" items="${deputados}">
                                 <tr>
                                     <td><a href='<c:url value="/faces/fichaParlamentar?nome=${deputados.nome}"/>' class="alert-link-link">${deputados.nome}</a></td>
+                                    <td><a href='<c:url value="/faces/fichaParlamentar?nome=${deputados.nomeParlamentar}"/>' class="alert-link-link">${deputados.nome}</a></td>
                                     <td>${deputados.partido}</td>
                                     <td>${deputados.uf}</td>
                                 </tr>

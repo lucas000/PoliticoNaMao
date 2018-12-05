@@ -8,7 +8,6 @@ package Servlet;
 import Consultas.TesteQueriesDeputados;
 import Modelos.Deputados;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,12 +33,19 @@ public class FichaParlamentarServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String nome = request.getParameter("nome");
         
+        System.out.println("Nome normal: " + nome);
+        String novoNome = new String(nome.getBytes("UTF-8"), "UTF-8");
+        System.out.println("Nome charsetado: " + novoNome);
         TesteQueriesDeputados teste = new TesteQueriesDeputados();
+
         Deputados d = (Deputados) teste.buscaDeputadosPorNome(nome);
+        
         request.setAttribute("deputadoss", d);
+        request.setAttribute("gastodeputado", teste.buscaGastosTotaisDeputado(nome));
+        request.setAttribute("projetosDeputado", teste.buscaPropostasPorDeputado(nome));
         
         request.getRequestDispatcher("fichaParlamentar.jsp").forward(request, response);
     }

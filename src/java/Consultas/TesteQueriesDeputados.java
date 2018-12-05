@@ -5,8 +5,11 @@
  */
 package Consultas;
 
+import Modelos.AutorProposicoes2018;
 import Modelos.Deputados;
+import Modelos.DespesasCotaExercicioAtividadeParlamentar_1;
 import Modelos.Estado;
+import java.text.DecimalFormat;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -34,11 +37,69 @@ public class TesteQueriesDeputados {
         
     }
     
+    public double buscaGastosTotaisDeputado(String nome){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("DespesasCotaExercicioAtividadeParlamentar_1");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT dcp FROM DespesasCotaExercicioAtividadeParlamentar_1 dcp where dcp.txNomeParlamentar=:nome");
+        query.setParameter("nome", nome);
+        
+        List gastos = query.getResultList();
+        double gastoTotal = 0.0;
+        
+        for (Object deputado : gastos) {
+            DespesasCotaExercicioAtividadeParlamentar_1 est = (DespesasCotaExercicioAtividadeParlamentar_1) deputado;
+            gastoTotal+=est.getVlrdocumento();
+        }
+        
+        DecimalFormat df = new DecimalFormat("0.##");
+        String dx = df.format(gastoTotal);
+        dx = dx.replaceAll(",", ".");
+        
+        return Double.parseDouble(dx);
+    }
+    
+    public int buscaPropostasPorDeputado(String nome){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("AutorProposicoes2018");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("select dcp from AutorProposicoes2018 dcp where dcp.nomeAutor=:nome");
+        query.setParameter("nome", nome);
+        
+        List projetos = query.getResultList();
+        
+        int numeroProjetos = 0;
+        
+        for (Object propos : projetos) {
+            AutorProposicoes2018 proposicoes = (AutorProposicoes2018) propos;
+            numeroProjetos+=1;
+        }
+        return numeroProjetos;
+    }
+    
+    public int buscaProposicoesDeputado(String nome){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("DespesasCotaExercicioAtividadeParlamentar_1");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT dcp FROM AutorProposicoes2018 dcp where dcp.nomeautor=:nome");
+        query.setParameter("nome", nome);
+        
+        List gastos = query.getResultList();
+        double gastoTotal = 0.0;
+        for (Object deputado : gastos) {
+            DespesasCotaExercicioAtividadeParlamentar_1 est = (DespesasCotaExercicioAtividadeParlamentar_1) deputado;
+            System.out.println(est.toString());
+            gastoTotal+=est.getVlrdocumento();
+        }
+        return (int) gastoTotal;
+    }
+    
     public Deputados buscaDeputadosPorNome(String nome){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.nome=:nome");
+        System.out.println("Nome passdo no buscaDeputadosPorNome: " + nome);
+        Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.nomeParlamentar=:nome");
         query.setParameter("nome", nome);
         Deputados deputados = (Deputados) query.getSingleResult();
         

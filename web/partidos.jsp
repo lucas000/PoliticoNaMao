@@ -34,8 +34,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Sigla</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Uri</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Informações</th>
+                            
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,8 +45,8 @@
                                 <tr>
                                     <td><a href='<c:url value="/faces/DeputadoServlet?estados=Todos&partidos=${partidos.sigla}"/>' class="alert-link-link">${partidos.sigla}</a></td>
                                     <td>${partidos.nome}</td>
-                                    <td>${partidos.uri}</td>
-                                </tr>
+                                    <td><a href='<c:url value="/faces/FichaPartidoServlet?sigla=${partidos.sigla}"/>' class="alert-link-link">Info</a></td>
+                                 </tr>
                             </c:forEach>
                             </tbody>
                         </table>

@@ -5,7 +5,6 @@
  */
 package Persistencia;
 
-import Modelos.Deputados;
 import Modelos.Partidos;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
