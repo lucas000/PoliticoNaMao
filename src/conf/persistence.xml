@@ -44,6 +44,8 @@
     <!-- entidade mapeada -->
     <class>Modelos.Partidos</class>
     <class>Modelos.Proposicao</class>
+    <class>Modelos.ProposicaoAutor</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <!-- dados da conexao -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

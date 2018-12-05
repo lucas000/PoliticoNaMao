@@ -35,8 +35,10 @@ public class ProposicaoDOM {
         List li = ProposicaoDOM.ler_Arquivos_Diretorio();
         String diretorio = li.get(li.size() - 1).toString();
         String arquivoCSV = diretorio;
-       
-
+      
+        String datahora;
+        String data;
+      
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Partidos");
         EntityManager manager = factory.createEntityManager();
 
@@ -70,7 +72,10 @@ public class ProposicaoDOM {
                     novo.setAno(Integer.parseInt(l[4]));
                     novo.setIdTipo(Integer.parseInt(l[5]));
                     novo.setEmenta(l[7]);
-                    novo.setDataApresentacao(l[10]);
+                    datahora = l[10];
+                    String vet[] = datahora.split("T");
+                    data = vet[0];
+                    novo.setDataApresentacao(data);
                     novo.setUriOrgaoNumerador(l[11]);
                     novo.setUrlInteiroTeor(l[15]);
                     novo.setUltimoStatus_descricaoTramitacao(l[24]);
@@ -143,9 +148,14 @@ public class ProposicaoDOM {
         List<File> listaDir = ProposicaoDOM.ler_Arquivos_Diretorio();
     //    List<Preposicao> lista = new ArrayList<>();
     
+    
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Partidos");
         EntityManager manager = factory.createEntityManager();
 
+        
+        String datahora;
+        String data;
+        
         for (int j = 0; j < listaDir.size(); j++) {
 
             String arquivoCSV = listaDir.get(j).toString();
@@ -172,7 +182,10 @@ public class ProposicaoDOM {
                         novo.setAno(Integer.parseInt(l[4]));
                         novo.setIdTipo(Integer.parseInt(l[5]));
                         novo.setEmenta(l[7]);
-                        novo.setDataApresentacao(l[10]);
+                        datahora = l[10];
+                        String vet[] = datahora.split("T");
+                        data = vet[0];
+                    novo.setDataApresentacao(data);
                         novo.setUriOrgaoNumerador(l[11]);
                         novo.setUrlInteiroTeor(l[15]);
                         novo.setUltimoStatus_descricaoTramitacao(l[24]);

@@ -7,7 +7,12 @@ package Servlet;
 
 
 import Consultas.TesteQueriesProposicao;
+import Modelos.Proposicao;
+import Modelos.ProposicaoAutor;
+import Modelos.ViewProposicao;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,14 +41,18 @@ public class ProposicaoServlet extends HttpServlet {
         
         
         if(request.getParameter("ano") == null){
-            TesteQueriesProposicao d = new TesteQueriesProposicao();
-            request.setAttribute("proposicao", d.buscaProposicaoAno(2018));
+           
+            
+         Consultas.TesteQueriesProposicao  b = new TesteQueriesProposicao();
+       
+            request.setAttribute("lista",b.buscaProposicaoAno(2018));
         }
         else{
             int ano = Integer.parseInt(request.getParameter("ano"));
             
-            TesteQueriesProposicao d = new TesteQueriesProposicao();
-            request.setAttribute("proposicao", d.buscaProposicaoAno(ano));
+              Consultas.TesteQueriesProposicao  b = new TesteQueriesProposicao();
+         
+            request.setAttribute("lista",b.buscaProposicaoAno(ano));
             request.getRequestDispatcher("propostas.jsp").forward(request, response);
         }
        // 
