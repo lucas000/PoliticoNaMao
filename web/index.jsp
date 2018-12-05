@@ -17,8 +17,10 @@
         
         <div class="card mt-5" style="width: 100%;" align="center">
             <div class="card-body">
-                <h5 class="card-title">Você sabia?</h5>
-                <p class="card-text">Que o deputado ABEL MESQUITA JR. gastou com combustiveis 344.444.77 R$ em 2018.</p>
+                <h5 class="card-title">O que fazemos?</h5>
+                <p class="card-text">Somos uma equipe que busca disceminar informações sobre deputados, partidos e proposições do Brasil.
+                Atualmente temos dados de 513 deputados, todos os partidos que estão na câmara dos deputados e proposições de
+                1934 até 2018.</p>
             </div>
         </div>
         
