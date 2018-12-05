@@ -15,6 +15,11 @@
     <body>
         <%@include file="barraMenu.jsp" %>
         
+        <div align="center">
+            <h5 class="display-5 mt-3">Index</h5>
+        </div>
+        
+        <%@include file="quemSomos.jsp" %>
         <div class="card mt-5" style="width: 100%;" align="center">
             <div class="card-body">
                 <h5 class="card-title">O que fazemos?</h5>
