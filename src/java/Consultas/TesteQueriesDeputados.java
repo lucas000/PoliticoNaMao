@@ -68,8 +68,8 @@ public class TesteQueriesDeputados {
         List favoritos = query.getResultList();
         
         return favoritos;
-        
     }
+    
     public int buscaPropostasPorDeputado(String nome){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();

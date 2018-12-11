@@ -34,7 +34,11 @@
                         <a class="nav-link" href="propostas.jsp">Proposições</a> 
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value='/faces/UsuarioServlet?cmd=fav&user=${usuario}'/>">Deputados Favoritos</a> 
+                        <a class="nav-link" href="<c:url value='/faces/UsuarioServlet?cmd=fav&user=${usuario.email}'/>">Deputados Favoritos</a> 
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="alterar.jsp">Alterar conta</a> 
                     </li>
                 </ul> 
                     <form class="form-inline my-2 my-lg-0" action="entrar.jsp">

@@ -8,6 +8,7 @@ package Servlet;
 import Consultas.MandaEmail;
 import Consultas.TesteQueriesDeputados;
 import Consultas.TesteUsuarios;
+import Consultas.VerificaSenha;
 import Criptografia.Criptografia;
 import Modelos.Favorito;
 import Modelos.Usuario;
@@ -45,13 +46,54 @@ public class UsuarioServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         String opcao = request.getParameter("cmd");
+        
         if(opcao.equals("fav")){
             TesteQueriesDeputados fav = new TesteQueriesDeputados();
             String email = request.getParameter("user");
             
             List favorito = fav.verFavoritos(email);
+            
             request.setAttribute("favoritos", favorito);
+            
+             for(Object d : favorito){
+                System.out.println(d.toString());
+            }
             request.getRequestDispatcher("favoritos.jsp").forward(request, response);
+        }
+        if(opcao.equals("alterarConta")){
+            String email = request.getParameter("email");
+            String senha1 = request.getParameter("senha1");
+            String senha2 = request.getParameter("senha2");
+            String nome = request.getParameter("nome");
+            
+            TesteUsuarios bu = new TesteUsuarios();
+            
+            Usuario r = bu.buscaUsuario(email);
+            System.out.println(r.toString());
+            if (r != null) {
+                if(senha1.equals(senha2)){
+                    //Controle de sessão
+                    HttpSession sessao = request.getSession();
+                    String senhaCifrada = Criptografia.computeSHA(senha1);
+                    
+                    r.setSenha(senhaCifrada);
+                    r.setNome(nome);
+                    r.setEmail(email);
+                    
+                    System.out.println("novo usuario: " + r.toString());
+                    UsuariosDAO dao = new UsuariosDAO();
+                    
+                    dao.alterUsuario(r);
+                    sessao.setAttribute("usuario", r);
+                    System.out.println("Alterou no altear");
+                    sessao.setMaxInactiveInterval(1800);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                } else{
+                    System.out.println("Senhas diferentes");
+                }
+            } else {
+                System.out.println("Nao encontrou!!");
+            }
         }
         
         if (opcao.equals("cadastrar")) {
@@ -60,11 +102,35 @@ public class UsuarioServlet extends HttpServlet {
             String nome = request.getParameter("nome");
             String email = request.getParameter("email");
             String senha1 = request.getParameter("senha1");
-            
             String senha2 = request.getParameter("senha2");
+            VerificaSenha v = new VerificaSenha();
             
-            if (senha1.equals(senha2)) {
-                String senhaCifrada = Criptografia.computeSHA(senha1);
+            boolean r = true;
+            
+            if(v.verificaCampos(nome, email, senha1, senha2) == false){
+                r = false;   
+            request.setAttribute("msg","Verifique ! Campos Vazios");
+            request.getRequestDispatcher("cadastrar.jsp").forward(request, response);    
+            
+            }
+           else if(!(senha1.length()>=8 && senha1.length()<=20)){
+                r = false;   
+                request.setAttribute("msg","Senha(Mínimo 8 e Máximo 20 caractere)");
+                request.getRequestDispatcher("cadastrar.jsp").forward(request, response);    
+            }
+            else if(!(senha1.equals(senha2))){
+                r = false;   
+                request.setAttribute("msg","Senhas não são iguais!");
+                request.getRequestDispatcher("cadastrar.jsp").forward(request, response);    
+            
+            }
+            else if(v.senhaBoa(senha1)==false){
+                r = false;   
+                request.setAttribute("msg","Senha fraca! <br> Requisitos Mínimos:<br> 8 caracteres <br> Letras Maiúsculas e Minúsculas <br> Caracteres Especiais");
+                request.getRequestDispatcher("cadastrar.jsp").forward(request, response);  
+            }
+            if(r == true){
+               String senhaCifrada = Criptografia.computeSHA(senha1);
                 
                 user.setSenha(senhaCifrada);
                 user.setEmail(email);
@@ -74,13 +140,10 @@ public class UsuarioServlet extends HttpServlet {
                 dao.addDeputado(user);
                 dao.fechaConexao();
                 
-            } else {
-                System.out.println("Algo deu errado");
+                request.getRequestDispatcher("index.jsp").forward(request, response); 
             }
         } 
         if(opcao.equals("entrar")){
-            Usuario user = new Usuario();
-            
             String senha = request.getParameter("senha");
             String email = request.getParameter("email");
             
@@ -95,7 +158,7 @@ public class UsuarioServlet extends HttpServlet {
                     System.out.println(r.toString());
                     //Controle de sessão
                     HttpSession sessao = request.getSession();
-                    sessao.setAttribute("usuario", r.getEmail());
+                    sessao.setAttribute("usuario", r);
                     sessao.setMaxInactiveInterval(1800);
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } else {
@@ -152,11 +215,11 @@ public class UsuarioServlet extends HttpServlet {
             favorito.setPartido(partido);
             favorito.setEstado(estado);
             
-            System.out.println(favorito.toString());
+            System.out.println("Favorto adicionar com sucesso: " + favorito.toString());
             dao.addFavorito(favorito);
             dao.fechaConexao();
             
-            request.getRequestDispatcher("fichaParlamentar.jsp").forward(request, response);
+            request.getRequestDispatcher("favoritos.jsp").forward(request, response);
         }
     }
     

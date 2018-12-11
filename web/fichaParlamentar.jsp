@@ -15,9 +15,8 @@
     </head>
     <body>
         <%@include file="barraMenu.jsp" %>
-        <p>${usuario}</p>
         <div class="container mt-2" align="center">
-            <form action="UsuarioServlet?cmd=addFavorito&nome=${deputadoss.nome}&nomeParlamentar=${deputadoss.nomeParlamentar}&partido=${deputadoss.partido}&estado=${deputadoss.uf}&nomeSeguidor=${usuario}" method="POST" >
+            <form action="UsuarioServlet?cmd=addFavorito&nome=${deputadoss.nome}&nomeParlamentar=${deputadoss.nomeParlamentar}&partido=${deputadoss.partido}&estado=${deputadoss.uf}&nomeSeguidor=${usuario.email}" method="POST" >
                 <button type="submit" class="btn btn-primary" >Adicionar aos favoritos</button>
             </form>
         </div>
@@ -59,7 +58,7 @@
         </div>
         <br>
         
-        <div class="md-12">
+        <div class="container md-12">
                     <form>
                         <table class="table table-hover table-sm">
                             <thead>
