@@ -7,10 +7,7 @@ package Servlet;
  */
 
 import Consultas.TesteQueriesDeputados;
-import Modelos.Deputados;
 import java.io.IOException;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,7 +46,7 @@ public class DeputadoServlet extends HttpServlet {
             request.getRequestDispatcher("deputados.jsp").forward(request, response);
         } else if(estado.equals("Todos") && !"Todos".equals(partido)){
             request.setAttribute("deputados", d.buscaDeputadosPorPartido(partido));
-        
+
             request.getRequestDispatcher("deputados.jsp").forward(request, response);
         } else if(!"Todos".equals(estado) && partido.equals("Todos")){
             request.setAttribute("deputados", d.buscaDeputadosPorEstado(estado));

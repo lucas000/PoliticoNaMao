@@ -12,12 +12,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ficha parlamentar</title>
         <link rel="stylesheet" href="../../../PoliticoNaMao/resources/node_modules/bootstrap/compiler/bootstrap.css"/>
-    
     </head>
     <body>
         <%@include file="barraMenu.jsp" %>
-        
-        <div class="container mt-3">
+        <p>${usuario}</p>
+        <div class="container mt-2" align="center">
+            <form action="UsuarioServlet?cmd=addFavorito&nome=${deputadoss.nome}&nomeParlamentar=${deputadoss.nomeParlamentar}&partido=${deputadoss.partido}&estado=${deputadoss.uf}&nomeSeguidor=${usuario}" method="POST" >
+                <button type="submit" class="btn btn-primary" >Adicionar aos favoritos</button>
+            </form>
+        </div>
+        <div class="container mt-2">
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8">
@@ -45,7 +49,7 @@
                       <h5 class="card-title">Informações</h5>
                       <hr>
                       <p class="card-text">Gastos: ${gastodeputado}</p>
-                      <p class="card-text">Propostas: ${projetosDeputado} <a href="propostas.jsp">Ver propostas</a></p>
+                      <p class="card-text">Propostas: ${prop.size()} </p>
                       </div>
                 </div>
                       </div>
@@ -54,7 +58,37 @@
             </div>
         </div>
         <br>
-        <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
+        
+        <div class="md-12">
+                    <form>
+                        <table class="table table-hover table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">EMENTA</th>
+                                    <th scope="col">SITUAÇÃO</th>
+                                    <th scope="col">DATA</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <c:forEach var="prop" items="${prop}">
+                                    <tr>
+                                        <td><a href='<c:url value="./descricaoProposicao.jsp?idproposicao=${prop.id}"/>'<b>${prop.id}</b></a></td>
+                                        <td style="text-align:justify;"><u>${prop.ementa}</u></td>
+                                        <td>${prop.ultimoStatus_descricaoSituacao}</td>
+                                        <td>${prop.dataApresentacao}</td>
+
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>     
+                    </form>
+                </div>
+        <%@include file="footer.jsp" %>
+    <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
     <script src="../../../PoliticoNaMao/resources/node_modules/popper.js/dist/umd/popper.js"></script>
     <script src="../../../PoliticoNaMao/resources/node_modules/bootstrap/dist/js/bootstrap.js"></script>
     </body>

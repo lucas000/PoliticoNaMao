@@ -23,7 +23,7 @@ public class TesteFichaPartidosDOM {
             FichaPartidosDOM myExampleDOM = new FichaPartidosDOM();
        
             // Imprimir os dados do arquivo
-            myExampleDOM.fazerParsing("..\\PoliticoNaMao\\src\\java\\Arquivos\\Partidos2.xml");
+            myExampleDOM.fazerParsing("C:\\Users\\Lucas\\Documents\\GitHub\\PoliticoNaMao\\src\\java\\Arquivos\\Partidos2.xml");
         
             // Contar a quantidade de paises
             //System.out.printf("\nExistem %d países neste documento\n\n", myExampleSax.contadorPaises);       

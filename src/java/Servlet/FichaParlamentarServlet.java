@@ -6,6 +6,7 @@
 package Servlet;
 
 import Consultas.TesteQueriesDeputados;
+import Consultas.TesteQueriesProposicao;
 import Modelos.Deputados;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -40,12 +41,14 @@ public class FichaParlamentarServlet extends HttpServlet {
         String novoNome = new String(nome.getBytes("UTF-8"), "UTF-8");
         System.out.println("Nome charsetado: " + novoNome);
         TesteQueriesDeputados teste = new TesteQueriesDeputados();
+        TesteQueriesProposicao pro = new TesteQueriesProposicao();
 
         Deputados d = (Deputados) teste.buscaDeputadosPorNome(nome);
         
         request.setAttribute("deputadoss", d);
         request.setAttribute("gastodeputado", teste.buscaGastosTotaisDeputado(nome));
         request.setAttribute("projetosDeputado", teste.buscaPropostasPorDeputado(nome));
+        request.setAttribute("prop", pro.buscaProposicaoPorNomeAutor(nome));
         
         request.getRequestDispatcher("fichaParlamentar.jsp").forward(request, response);
     }

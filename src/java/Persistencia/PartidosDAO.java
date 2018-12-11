@@ -15,7 +15,7 @@ import javax.persistence.Persistence;
  * @author Allan
  */
 public class PartidosDAO {
-    EntityManagerFactory partidos = Persistence.createEntityManagerFactory("Partidos");
+    EntityManagerFactory partidos = Persistence.createEntityManagerFactory("PU");
     EntityManager manager = partidos.createEntityManager();
     
     public void addPartido(Partidos partido){

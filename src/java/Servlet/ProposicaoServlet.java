@@ -5,7 +5,8 @@
  */
 package Servlet;
 
-import Consultas.TesteQueriesPartidos;
+
+import Consultas.TesteQueriesProposicao;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Allan
+ * @author Vicom
  */
-@WebServlet(name = "PartidoServlet", urlPatterns = {"/PartidoServlet"})
-public class PartidoServlet extends HttpServlet {
+@WebServlet(name = "ProposicaoServlet", urlPatterns = {"/ProposicaoServlet"})
+public class ProposicaoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,19 +30,28 @@ public class PartidoServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-       
         
-        TesteQueriesPartidos d = new TesteQueriesPartidos();
-        
-        request.setAttribute("partidos", d.buscaPartidos());
-        
+        if(request.getParameter("ano") == null){
+           
             
-        request.getRequestDispatcher("partidos.jsp").forward(request, response);
+            Consultas.TesteQueriesProposicao  b = new TesteQueriesProposicao();
+       
+            request.setAttribute("lista",b.buscaProposicaoAno(2018));
+        }
+        else{
+            int ano = Integer.parseInt(request.getParameter("ano"));
+            
+              Consultas.TesteQueriesProposicao  b = new TesteQueriesProposicao();
          
+            request.setAttribute("lista",b.buscaProposicaoAno(ano));
+            request.getRequestDispatcher("propostas.jsp").forward(request, response);
+        }
+        // 
+        // request.getRequestDispatcher("propostas.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -5,28 +5,26 @@
  */
 package Persistencia;
 
-import Modelos.FichaPartidos;
-import Modelos.Partidos;
+import Modelos.Favorito;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
  *
- * @author Allan
+ * @author Lucas
  */
-public class FichaPartidosDAO {
-    EntityManagerFactory partidos = Persistence.createEntityManagerFactory("PU");
-    EntityManager manager = partidos.createEntityManager();
+public class FavoritoDAO {
+    EntityManagerFactory deputados = Persistence.createEntityManagerFactory("PU");
+    EntityManager manager = deputados.createEntityManager();
     
-    public void addFichaPartido(FichaPartidos partido){
+    public void addFavorito(Favorito favo){
         manager.getTransaction().begin();
-        manager.persist(partido);
+        manager.persist(favo);
         manager.getTransaction().commit();
     }
     
     public void fechaConexao(){
         manager.close();
     }
-    
 }

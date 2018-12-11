@@ -143,7 +143,7 @@ public class DespesasCotaExercicioAtividadeParlamentar_1 implements Serializable
 
         br = new BufferedReader(new FileReader(arquivoCSV));
         br.readLine();
-         EntityManagerFactory deputadosss = Persistence.createEntityManagerFactory("DespesasCotaExercicioAtividadeParlamentar_1");
+         EntityManagerFactory deputadosss = Persistence.createEntityManagerFactory("PU");
             EntityManager manager = deputadosss.createEntityManager();
         while ((linha = br.readLine()) != null) {
       //  linha = linha.replaceAll("\"","");
@@ -202,7 +202,7 @@ public class DespesasCotaExercicioAtividadeParlamentar_1 implements Serializable
     
       static public void salvarBanco(List<DespesasCotaExercicioAtividadeParlamentar_1> l) {
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("despesasCotaExercicioAtividadeParlamentar");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
 
         EntityManager manager = factory.createEntityManager();
         for (int i = 0; i < 5; i++) {

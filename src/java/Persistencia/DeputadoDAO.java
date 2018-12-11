@@ -15,7 +15,7 @@ import javax.persistence.Persistence;
  * @author Lucas
  */
 public class DeputadoDAO {
-    EntityManagerFactory deputados = Persistence.createEntityManagerFactory("Deputados");
+    EntityManagerFactory deputados = Persistence.createEntityManagerFactory("PU");
     EntityManager manager = deputados.createEntityManager();
     
     public void addDeputado(Deputados deputado){

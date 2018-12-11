@@ -19,7 +19,7 @@ import javax.persistence.Query;
  */
 public class TesteQueriesFichaPartidos {
     public List<FichaPartidos> buscaFichaPartidos(){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("FichaPartidos");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
         Query query = manager.createQuery("SELECT e FROM fichaPartidos e");
@@ -29,7 +29,7 @@ public class TesteQueriesFichaPartidos {
         
     }
     public FichaPartidos buscaFichaPartidosPor(String nome){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("FichaPartidos");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
         Query query = manager.createQuery("SELECT e FROM FichaPartidos e WHERE e.nome=:nome");
@@ -40,7 +40,7 @@ public class TesteQueriesFichaPartidos {
         
     }
     public FichaPartidos buscaFichaPartidosPorSigla(String sigla){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("FichaPartidos");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
         Query query = manager.createQuery("SELECT e FROM FichaPartidos e WHERE e.sigla=:sigla");

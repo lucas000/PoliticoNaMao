@@ -5,7 +5,6 @@
  */
 package Consultas;
 
-import Modelos.Deputados;
 import Modelos.Partidos;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -23,7 +22,7 @@ public class TesteQueriesPartidos {
      */
     
     public List<Partidos> buscaPartidos(){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Partidos");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
         Query query = manager.createQuery("SELECT e FROM Partidos e");

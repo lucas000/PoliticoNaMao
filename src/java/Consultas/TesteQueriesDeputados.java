@@ -9,6 +9,7 @@ import Modelos.AutorProposicoes2018;
 import Modelos.Deputados;
 import Modelos.DespesasCotaExercicioAtividadeParlamentar_1;
 import Modelos.Estado;
+import Modelos.Favorito;
 import java.text.DecimalFormat;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -27,7 +28,7 @@ public class TesteQueriesDeputados {
      */
     
     public List<Deputados> buscaDeputados(){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
         Query query = manager.createQuery("SELECT e FROM Deputados e ORDER BY NOME ASC");
@@ -38,7 +39,7 @@ public class TesteQueriesDeputados {
     }
     
     public double buscaGastosTotaisDeputado(String nome){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("DespesasCotaExercicioAtividadeParlamentar_1");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
         Query query = manager.createQuery("SELECT dcp FROM DespesasCotaExercicioAtividadeParlamentar_1 dcp where dcp.txNomeParlamentar=:nome");
@@ -59,8 +60,18 @@ public class TesteQueriesDeputados {
         return Double.parseDouble(dx);
     }
     
+    public List<Favorito> verFavoritos(String email){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT e FROM Favorito e where e.emailSeguidor like '" + email + "'");
+        List favoritos = query.getResultList();
+        
+        return favoritos;
+        
+    }
     public int buscaPropostasPorDeputado(String nome){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("AutorProposicoes2018");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
         Query query = manager.createQuery("select dcp from AutorProposicoes2018 dcp where dcp.nomeAutor=:nome");
@@ -78,7 +89,7 @@ public class TesteQueriesDeputados {
     }
     
     public int buscaProposicoesDeputado(String nome){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("DespesasCotaExercicioAtividadeParlamentar_1");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
         Query query = manager.createQuery("SELECT dcp FROM AutorProposicoes2018 dcp where dcp.nomeautor=:nome");
@@ -95,7 +106,7 @@ public class TesteQueriesDeputados {
     }
     
     public Deputados buscaDeputadosPorNome(String nome){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
         System.out.println("Nome passdo no buscaDeputadosPorNome: " + nome);
@@ -107,7 +118,7 @@ public class TesteQueriesDeputados {
         
     }
     public List<Estado> buscaEstado(){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Estado");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
         Query query = manager.createQuery("SELECT e FROM Estado e");
@@ -117,7 +128,7 @@ public class TesteQueriesDeputados {
     }
     
     public List<Deputados> buscaPorPartidoEstado(String estado, String partido){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
         Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.uf=:estado and e.partido =:partido");
         query.setParameter("estado", estado);
@@ -130,7 +141,7 @@ public class TesteQueriesDeputados {
     }
     
     public List<Deputados> buscaPorEstado(String estado){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
         Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.uf=:estado");
         query.setParameter("estado", estado);
@@ -142,7 +153,7 @@ public class TesteQueriesDeputados {
     }
     
     public List<Deputados> buscaDeputadosPorPartido(String partido){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
         Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.partido=:partido");
         query.setParameter("partido", partido);
@@ -156,6 +167,7 @@ public class TesteQueriesDeputados {
     public List<Deputados> buscaDeputadosPorEstado(String estado){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Deputados");
         EntityManager manager = factory.createEntityManager();
+        
         Query query = manager.createQuery("SELECT e FROM Deputados e WHERE e.uf=:estado");
         query.setParameter("estado", estado);
         

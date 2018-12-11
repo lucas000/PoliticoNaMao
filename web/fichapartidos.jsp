@@ -58,7 +58,7 @@
         </div>
         </div>
         <br>
-        <%@include file="quemSomos.jsp" %>
+        <%@include file="footer.jsp" %>
         <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
     <script src="../../../PoliticoNaMao/resources/node_modules/popper.js/dist/umd/popper.js"></script>
     <script src="../../../PoliticoNaMao/resources/node_modules/bootstrap/dist/js/bootstrap.js"></script>
