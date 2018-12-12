@@ -30,7 +30,7 @@ public class UsuariosDAO {
         manager.getTransaction().commit();
     }
     
-    public void deleteDeputado(Usuario usuarios){
+    public void deleteUsuario(Usuario usuarios){
         manager.getTransaction().begin();
         manager.remove(usuarios);
         manager.getTransaction().commit();

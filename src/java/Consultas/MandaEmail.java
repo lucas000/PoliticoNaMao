@@ -78,7 +78,7 @@ public class MandaEmail {
         this.props = props;
     }
 
-  public void enviarGmail() {
+    public void enviarGmail() {
         boolean retorno = false;
         //Get the session object  
         Properties props = new Properties();
@@ -91,14 +91,14 @@ public class MandaEmail {
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
 
-                        return new PasswordAuthentication("samuelalvesv4@gmail.com","alvesv42011");//email e senha usuário 
+                        return new PasswordAuthentication("politiconamao000@gmail.com","99335572");//email e senha usuário 
                     }
                 });
 
         //compose message  
         try {
             MimeMessage message = new MimeMessage(s);
-            message.setFrom(new InternetAddress("samuelalvesv4@gmail.com"));
+            message.setFrom(new InternetAddress("politiconamao000@gmail.com"));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(emailDestino));
 
             message.setSubject(assunto);
@@ -113,9 +113,5 @@ public class MandaEmail {
             retorno = false;
             e.printStackTrace();
         }
-       
     }
-    
-    
-    
 }

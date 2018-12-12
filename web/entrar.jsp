@@ -15,6 +15,12 @@
         <%@include file="barraMenu.jsp" %>
         <h3 class='display-5 mt-3' align='center'>Entrar</h3>
         
+        <div class="container">
+            <c:if test="${msg != null}">
+                <p style="color: red">${msg}</p>
+            </c:if>
+        </div>
+        
         <div class="container mt-4">
             <form action="UsuarioServlet?cmd=entrar" method="POST" name="entrar">
                 <div class="form-group">

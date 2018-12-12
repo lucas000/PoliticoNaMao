@@ -6,6 +6,7 @@
 package Modelos;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,16 @@ public class Usuario implements Serializable {
     private String nome;
     private String email;
     private String senha;
-
+    
+    @Column(nullable=true)
+    private boolean status;
+    
+    @Column(nullable=true)
+    private int tentativas;
+    
+    @Column(nullable=true) 
+    private String codigoAcesso;
+    
     public int getId() {
         return id;
     }
@@ -57,9 +67,34 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
+    public String getCodigoAcesso() {
+        return codigoAcesso;
+    }
+
+    public void setCodigoAcesso(String codigoAcesso) {
+        this.codigoAcesso = codigoAcesso;
+    }
+
+    public int getTentativas() {
+        return tentativas;
+    }
+
+    public void setTentativas(int tentativas) {
+        this.tentativas = tentativas;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + '}';
+        return "Usuario{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", status=" + status + ", tentativas=" + tentativas + ", codigoAcesso=" + codigoAcesso + '}';
     }
+
     
 }

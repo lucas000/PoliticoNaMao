@@ -40,6 +40,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="alterar.jsp">Alterar conta</a> 
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value='/faces/UsuarioServlet?cmd=apagarConta&user=${usuario.email}'/>">Apagar Conta</a> 
+                    </li>
                 </ul> 
                     <form class="form-inline my-2 my-lg-0" action="entrar.jsp">
                         <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Entrar</button>

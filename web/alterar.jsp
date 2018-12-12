@@ -15,6 +15,13 @@
     <body>
         <%@include file="barraMenu.jsp" %>
         <h3 class='display-5 mt-3' align='center'>Alterar conta</h3>
+        
+        <div class="container">
+            <c:if test="${msg != null}">
+                <p style="color: red">${msg}</p>
+            </c:if>
+        </div>
+        
         <div class="container mt-4">
             <form action="UsuarioServlet?cmd=alterarConta&email=${usuario.email}&nome=${usuario.nome}" method="POST">
                 <div class="form-group">

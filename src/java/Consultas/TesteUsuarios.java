@@ -5,6 +5,7 @@
  */
 package Consultas;
 
+import Criptografia.Criptografia;
 import Modelos.Usuario;
 import Persistencia.UsuariosDAO;
 import java.util.List;
@@ -18,6 +19,7 @@ import javax.persistence.Query;
  * @author Lucas
  */
 public class TesteUsuarios {
+    
     public Usuario buscaUsuario(String email){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
@@ -34,17 +36,27 @@ public class TesteUsuarios {
         
     }
     
-    public void atualizaSenha(String email, String nome){
+    public void atualizaCodigo(String email, String nome, int codigoAcesso) throws Exception{
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
         
         Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "'");
         List usuario = query.getResultList();
         Usuario user = (Usuario) usuario.get(0);
+        
         UsuariosDAO d = new UsuariosDAO();
         
-        user.setSenha("Nova senha 2");
+        String codigoCifrado = Criptografia.computeSHA(String.valueOf(codigoAcesso));
+        
+        user.setCodigoAcesso(codigoCifrado);
         
         d.alterUsuario(user);
+    }
+    
+     public void apagaConta(String email){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
+        EntityManager manager = factory.createEntityManager();
+        
+        Query query = manager.createQuery("DELETE FROM Usuario e Where e.email like '" + email + "'");
     }
 }
