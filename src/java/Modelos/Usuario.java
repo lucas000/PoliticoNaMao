@@ -26,8 +26,7 @@ public class Usuario implements Serializable {
     private String email;
     private String senha;
     
-    @Column(nullable=true)
-    private boolean status;
+    private int status;
     
     @Column(nullable=true)
     private int tentativas;
@@ -83,11 +82,11 @@ public class Usuario implements Serializable {
         this.tentativas = tentativas;
     }
 
-    public boolean isStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

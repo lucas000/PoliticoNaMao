@@ -14,7 +14,7 @@
     </head>
     <body>
         <%@include file="barraMenu.jsp" %>
-        <h3 class='display-5 mt-3' align='center'>Alterar conta</h3>
+        <h3 class='display-5 mt-3' align='center'>Alterar conta de ${usuario.nome}</h3>
         <p>${usuario.email}</p>
         <div class="container">
             <c:if test="${msg != null}">

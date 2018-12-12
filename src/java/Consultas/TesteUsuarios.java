@@ -19,60 +19,105 @@ import javax.persistence.Query;
  * @author Lucas
  */
 public class TesteUsuarios {
-    
-    public Usuario buscaUsuario(String email){
+
+    public Usuario buscaUsuario(String email) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
-        
+
         Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "'");
         List usuario = query.getResultList();
-        
-        if(usuario.isEmpty()){
+
+        if (usuario.isEmpty()) {
+            manager.close();
             return null;
-        }else{
+        } else {
             Usuario user = (Usuario) usuario.get(0);
+            manager.close();
             return user;
         }
-        
+
     }
-    
-    public Usuario buscaUsuarioRecuperar(String email, String nome){
+
+    public Usuario buscaUsuarioRecuperar(String email, String nome) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
-        
+
         Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "' and e.nome like '" + nome + "'");
         List usuario = query.getResultList();
-        
-        if(usuario.isEmpty()){
+
+        if (usuario.isEmpty()) {
+            manager.close();
             return null;
-        }else{
+        } else {
             Usuario user = (Usuario) usuario.get(0);
+            manager.close();
             return user;
         }
-        
+
     }
-    
-    public void atualizaCodigo(String email, String nome, int codigoAcesso) throws Exception{
+
+    public void atualizaCodigo(String email, String nome, int codigoAcesso) throws Exception {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
-        
+
         Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "' and e.nome like '" + nome + "'");
         List usuario = query.getResultList();
         Usuario user = (Usuario) usuario.get(0);
-        
+
         UsuariosDAO d = new UsuariosDAO();
-        
+
         String codigoCifrado = Criptografia.computeSHA(String.valueOf(codigoAcesso));
-        
+
         user.setCodigoAcesso(codigoCifrado);
         
         d.alterUsuario(user);
+        manager.close();
+        d.fechaConexao();
     }
-    
-     public void apagaConta(String email){
+    public void atualizaContaBloqueada(String email) throws Exception {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "'");
+        List usuario = query.getResultList();
+        Usuario user = (Usuario) usuario.get(0);
+
+        UsuariosDAO d = new UsuariosDAO();
+
+        user.setCodigoAcesso(null);
+        user.setStatus(1);
+        user.setTentativas(0);
         
+        d.alterUsuario(user);
+        manager.close();
+        d.fechaConexao();
+    }
+    public void apagaConta(String email) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
+        EntityManager manager = factory.createEntityManager();
+
         Query query = manager.createQuery("DELETE FROM Usuario e Where e.email like '" + email + "'");
+        
+        manager.close();
+    }
+
+    public void Cont_Erro_Acesso(String email) throws Exception {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
+        EntityManager manager = factory.createEntityManager();
+
+        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "'");
+        List usuario = query.getResultList();
+        Usuario user = (Usuario) usuario.get(0);
+
+        UsuariosDAO d = new UsuariosDAO();
+
+        if (user.getTentativas() > 8) {
+            user.setStatus(0);
+        } else {
+            user.setTentativas(user.getTentativas() + 1);
+        }
+        d.alterUsuario(user);
+        d.fechaConexao();
+        manager.close();
     }
 }

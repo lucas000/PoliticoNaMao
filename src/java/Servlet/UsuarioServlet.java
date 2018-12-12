@@ -140,11 +140,11 @@ public class UsuarioServlet extends HttpServlet {
             
             if(v.verificaCampos(nome, email, senha1, senha2) == false){
                 resultadoValidacao = false;   
-            request.setAttribute("msg","Verifique ! Campos Vazios");
-            request.getRequestDispatcher("cadastrar.jsp").forward(request, response);    
-            
+                request.setAttribute("msg","Verifique ! Campos Vazios");
+                request.getRequestDispatcher("cadastrar.jsp").forward(request, response);    
             }
-           else if(!(senha1.length()>=8 && senha1.length()<=20)){
+            
+            else if(!(senha1.length()>=8 && senha1.length()<=20)){
                 resultadoValidacao = false;   
                 request.setAttribute("msg","Senha(Mínimo 8 e Máximo 20 caractere)");
                 request.getRequestDispatcher("cadastrar.jsp").forward(request, response);    
@@ -170,13 +170,12 @@ public class UsuarioServlet extends HttpServlet {
                     
                     Usuario usuario = new Usuario();
                     
-                    System.out.println("Senha: " + senhaCifrada);
-                    System.out.println("Foi na senha");
-                    
                     usuario.setEmail(email);
                     usuario.setSenha(senhaCifrada);
                     usuario.setNome(nome);
-
+                    usuario.setStatus(1);
+                    
+                    System.out.println("Usuario: " + usuario.toString());
                     UsuariosDAO dao = new UsuariosDAO();
                     dao.addDeputado(usuario);
                     dao.fechaConexao();
@@ -202,18 +201,6 @@ public class UsuarioServlet extends HttpServlet {
                 request.getRequestDispatcher("entrar.jsp").forward(request, response);    
             }
             
-            else if(!(senha.length()>=8 && senha.length()<=20)){
-                resultadoValidacao = false;   
-                request.setAttribute("msg","Senha(Mínimo 8 e Máximo 20 caractere)");
-                request.getRequestDispatcher("entrar.jsp").forward(request, response);    
-            }
-            
-            else if(v.senhaBoa(senha)==false){
-                resultadoValidacao = false;   
-                request.setAttribute("msg","Senha fraca! <br> Requisitos Mínimos:<br> 8 caracteres <br> Letras Maiúsculas e Minúsculas <br> Caracteres Especiais");
-                request.getRequestDispatcher("cadastrar.jsp").forward(request, response);  
-            }
-            
             if(resultadoValidacao == true){
                 TesteUsuarios bu = new TesteUsuarios();
 
@@ -222,15 +209,26 @@ public class UsuarioServlet extends HttpServlet {
                 if (r != null) {
                     String senhaCifrada = Criptografia.computeSHA(senha);
                     if (senhaCifrada.equals(r.getSenha())) {
-
-                        System.out.println(r.toString());
-                        //Controle de sessão
-                        HttpSession sessao = request.getSession();
-                        sessao.setAttribute("usuario", r);
-                        sessao.setMaxInactiveInterval(1800);
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        if (r.getStatus() == 1) {
+                            //Controle de sessão
+                            HttpSession sessao = request.getSession();
+                            sessao.setAttribute("usuario", r);
+                            sessao.setMaxInactiveInterval(1800);
+                            request.getRequestDispatcher("index.jsp").forward(request, response);
+                        } else{
+                            request.setAttribute("msg", "Usuário bloqueado, recupere a senha!");
+                            request.getRequestDispatcher("entrar.jsp").forward(request, response);
+                        }
                     } else {
-                        request.setAttribute("msg", "Tente novamente, por favor!");
+                        
+                        
+                        if (r.getStatus() == 0) {
+                            request.setAttribute("msg", "Usuário bloqueado, recupere a senha!");
+                        } else{
+                            request.setAttribute("msg", "Tente novamente@!");
+                        }
+                        bu.Cont_Erro_Acesso(email);
+                        
                         request.getRequestDispatcher("entrar.jsp").forward(request, response);
                     }
                 } else {
@@ -314,7 +312,7 @@ public class UsuarioServlet extends HttpServlet {
             
             Usuario r = bu.buscaUsuario(email);
             
-            if (codigo.isEmpty() || codigo.length() != 8) {
+            if (codigo.isEmpty()) {
                 request.setAttribute("msg", "Código com tamanho inválido");
                 request.getRequestDispatcher("recuperarSenhaComCodigo.jsp").forward(request, response);
             } else {
@@ -323,6 +321,7 @@ public class UsuarioServlet extends HttpServlet {
                 if (r != null) {
                     if (r.getCodigoAcesso().equals(codigoCifrado)) {
                         request.setAttribute("msg", "Por favor, troque sua senha");
+                        
                         request.setAttribute("usuarioParaRestaurar", r);
                         request.getRequestDispatcher("trocaSenha.jsp").forward(request, response);
                     }
@@ -342,19 +341,13 @@ public class UsuarioServlet extends HttpServlet {
             Usuario usuario = bu.buscaUsuario(email);
             
             if (usuario != null) {
-                UsuariosDAO dao = new UsuariosDAO();
-            
                 String senhaCifrada = Criptografia.computeSHA(senha1);
                 usuario.setSenha(senhaCifrada);
-
-                usuario.setCodigoAcesso(null);
-                dao.alterUsuario(usuario);
-                dao.fechaConexao();
-
+                
+                TesteUsuarios d = new TesteUsuarios();
+                d.atualizaContaBloqueada(email);
                 response.sendRedirect("entrar.jsp");
-        
             }
-            
         }
         if(opcao.equals("addFavorito")){
             FavoritoDAO dao = new FavoritoDAO();
