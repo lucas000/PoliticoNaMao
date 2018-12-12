@@ -15,7 +15,7 @@
     <body>
         <%@include file="barraMenu.jsp" %>
         <h3 class='display-5 mt-3' align='center'>Alterar conta</h3>
-        
+        <p>${usuario.email}</p>
         <div class="container">
             <c:if test="${msg != null}">
                 <p style="color: red">${msg}</p>
@@ -26,7 +26,7 @@
             <form action="UsuarioServlet?cmd=alterarConta&email=${usuario.email}&nome=${usuario.nome}" method="POST">
                 <div class="form-group">
                   <label for="exampleInputPassword1">Nome completo</label>
-                  <input type="text" class="form-control" id="senha1" name="nome" value="${usuario.nome}">
+                  <input type="text" class="form-control" id="senha1" name="nome" value="${usuario.nome}" maxlength="256">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">E-mail</label>
@@ -34,11 +34,11 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Senha</label>
-                  <input type="password" class="form-control" id="senha1" name="senha1" placeholder="Sua senha">
+                  <input type="password" class="form-control" id="senha1" name="senha1" placeholder="Sua senha" maxlength="20">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Confirmar Senha</label>
-                  <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Confirme sua senha">
+                  <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Confirme sua senha" maxlength="20">
                 </div>
                 <button type="submit" class="btn btn-sucess">Salvar alterações</button>
             </form>

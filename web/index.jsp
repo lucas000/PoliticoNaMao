@@ -14,6 +14,7 @@
     </head>
     <body>
         <%@include file="barraMenu.jsp" %>
+        <p>${usuario.email}</p>
         <div class="card mt-5" style="width: 100%;" align="center">
             <div class="card-body">
                 <h5 class="card-title">O que é o Político na mão?</h5>

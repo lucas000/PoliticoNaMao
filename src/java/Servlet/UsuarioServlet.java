@@ -67,34 +67,65 @@ public class UsuarioServlet extends HttpServlet {
             String senha2 = request.getParameter("senha2");
             String nome = request.getParameter("nome");
             
-            TesteUsuarios bu = new TesteUsuarios();
+            VerificaSenha v = new VerificaSenha();
             
-            Usuario r = bu.buscaUsuario(email);
-            System.out.println(r.toString());
-            if (r != null) {
-                if(senha1.equals(senha2)){
-                    //Controle de sessão
-                    HttpSession sessao = request.getSession();
-                    String senhaCifrada = Criptografia.computeSHA(senha1);
-                    
-                    r.setSenha(senhaCifrada);
-                    r.setNome(nome);
-                    r.setEmail(email);
-                    
-                    System.out.println("novo usuario: " + r.toString());
-                    UsuariosDAO dao = new UsuariosDAO();
-                    
-                    dao.alterUsuario(r);
-                    sessao.setAttribute("usuario", r);
-                    System.out.println("Alterou no altear");
-                    sessao.setMaxInactiveInterval(1800);
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
-                } else{
-                    System.out.println("Senhas diferentes");
-                }
-            } else {
-                request.setAttribute("msg","Usuário não encontrado");
+            boolean resultadoValidacao = true;
+            
+            if(v.verificaCampos(nome, email, senha1, senha2) == false){
+                resultadoValidacao = false;   
+                request.setAttribute("msg","Verifique! Campos Vazios");
                 request.getRequestDispatcher("alterar.jsp").forward(request, response);    
+            
+            }
+           else if(!(senha1.length()>=8 && senha1.length()<=20)){
+                resultadoValidacao = false;   
+                request.setAttribute("msg","Senha(Mínimo 8 e Máximo 20 caractere)");
+                request.getRequestDispatcher("alterar.jsp").forward(request, response);    
+            }
+            else if(!(senha1.equals(senha2))){
+                resultadoValidacao = false;   
+                request.setAttribute("msg","Senhas não são iguais!");
+                request.getRequestDispatcher("alterar.jsp").forward(request, response);    
+            
+            }
+            else if(v.senhaBoa(senha1)==false){
+                resultadoValidacao = false;   
+                request.setAttribute("msg","Senha fraca! <br> Requisitos Mínimos:<br> 8 caracteres <br> Letras Maiúsculas e Minúsculas <br> Caracteres Especiais");
+                request.getRequestDispatcher("alterar.jsp").forward(request, response);  
+            }
+            
+            if(resultadoValidacao == true){
+                TesteUsuarios bu = new TesteUsuarios();
+
+                Usuario r = bu.buscaUsuario(email);
+                System.out.println(r.toString());
+                if (r != null) {
+                    if(senha1.equals(senha2)){
+
+                        //Controle de sessão
+                        HttpSession sessao = request.getSession();
+                        String senhaCifrada = Criptografia.computeSHA(senha1);
+
+                        r.setSenha(senhaCifrada);
+                        r.setNome(nome);
+                        r.setEmail(email);
+
+                        System.out.println("novo usuario: " + r.toString());
+                        UsuariosDAO dao = new UsuariosDAO();
+
+                        dao.alterUsuario(r);
+                        sessao.setAttribute("usuario", r);
+                        System.out.println("Alterou no altear");
+                        sessao.setMaxInactiveInterval(1800);
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                    } else {
+                        request.setAttribute("msg","Erro ao realizar login!");
+                        request.getRequestDispatcher("alterar.jsp").forward(request, response);    
+                    }
+                } else {
+                    request.setAttribute("msg","Usuário não encontrado");
+                    request.getRequestDispatcher("alterar.jsp").forward(request, response);    
+                }
             }
         }
         
@@ -150,7 +181,6 @@ public class UsuarioServlet extends HttpServlet {
                     dao.addDeputado(usuario);
                     dao.fechaConexao();
                     
-                    System.out.println("Deu certo");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 } else {
                     request.setAttribute("msg","Usuário já está cadastrado. <br>Tente recuperar a senha!<br>");
@@ -162,27 +192,51 @@ public class UsuarioServlet extends HttpServlet {
             String senha = request.getParameter("senha");
             String email = request.getParameter("email");
             
-            TesteUsuarios bu = new TesteUsuarios();
+            VerificaSenha v = new VerificaSenha();
             
-            Usuario r = bu.buscaUsuario(email);
+            boolean resultadoValidacao = true;
             
-            if (r != null) {
-                String senhaCifrada = Criptografia.computeSHA(senha);
-                if (senhaCifrada.equals(r.getSenha())) {
-                    
-                    System.out.println(r.toString());
-                    //Controle de sessão
-                    HttpSession sessao = request.getSession();
-                    sessao.setAttribute("usuario", r);
-                    sessao.setMaxInactiveInterval(1800);
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+            if(v.verificaCampos(email, senha) == false){
+                resultadoValidacao = false;   
+                request.setAttribute("msg","Verifique ! Campos Vazios");
+                request.getRequestDispatcher("entrar.jsp").forward(request, response);    
+            }
+            
+            else if(!(senha.length()>=8 && senha.length()<=20)){
+                resultadoValidacao = false;   
+                request.setAttribute("msg","Senha(Mínimo 8 e Máximo 20 caractere)");
+                request.getRequestDispatcher("entrar.jsp").forward(request, response);    
+            }
+            
+            else if(v.senhaBoa(senha)==false){
+                resultadoValidacao = false;   
+                request.setAttribute("msg","Senha fraca! <br> Requisitos Mínimos:<br> 8 caracteres <br> Letras Maiúsculas e Minúsculas <br> Caracteres Especiais");
+                request.getRequestDispatcher("cadastrar.jsp").forward(request, response);  
+            }
+            
+            if(resultadoValidacao == true){
+                TesteUsuarios bu = new TesteUsuarios();
+
+                Usuario r = bu.buscaUsuario(email);
+
+                if (r != null) {
+                    String senhaCifrada = Criptografia.computeSHA(senha);
+                    if (senhaCifrada.equals(r.getSenha())) {
+
+                        System.out.println(r.toString());
+                        //Controle de sessão
+                        HttpSession sessao = request.getSession();
+                        sessao.setAttribute("usuario", r);
+                        sessao.setMaxInactiveInterval(1800);
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                    } else {
+                        request.setAttribute("msg", "Tente novamente, por favor!");
+                        request.getRequestDispatcher("entrar.jsp").forward(request, response);
+                    }
                 } else {
-                    request.setAttribute("msg", "Tente novamente, por favor!");
+                    request.setAttribute("msg", "Usuário não encontrado, por favor, tente novamente!");
                     request.getRequestDispatcher("entrar.jsp").forward(request, response);
                 }
-            } else {
-                request.setAttribute("msg", "Usuário não encontrado, por favor, tente novamente!");
-                request.getRequestDispatcher("entrar.jsp").forward(request, response);
             }
         }
                 
@@ -200,36 +254,54 @@ public class UsuarioServlet extends HttpServlet {
                 System.out.println("Apagou a conta");
                 response.sendRedirect("index.jsp");
             } else {
-                System.out.println("Nao encontrou!!");
+                request.setAttribute("msg", "Usuário não encontrado, por favor, tente novamente!");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         }
         if(opcao.equals("recuperar")){
-            Usuario user = new Usuario();
             
             String nome = request.getParameter("nome");
             String email = request.getParameter("email");
+            VerificaSenha v = new VerificaSenha();
             
-            TesteUsuarios bu = new TesteUsuarios();
+            boolean resultadoValidacao = true;
             
-            Usuario r = bu.buscaUsuario(email);
+            if(v.verificaCampos(email, nome) == false){
+                resultadoValidacao = false;   
+                request.setAttribute("msg","Verifique! Campos Vazios");
+                request.getRequestDispatcher("entrar.jsp").forward(request, response);    
+            }
             
-            if (r != null) {
-                MandaEmail e = new MandaEmail();
-                
-                TesteUsuarios se = new TesteUsuarios();
-                int codigoAcesso = geraCodigoAcesso();
-                
-                se.atualizaCodigo(email, nome, codigoAcesso);
-                
-                e.setAssunto("Recuperação de senha - Político na mão");
-                e.setEmailDestino(email);
-                e.setMsg("Olá " + nome + " seu código para acesso é: " + codigoAcesso);
-                
-                e.enviarGmail();
-                request.setAttribute("usuarioParaRestaurar", r);
-                response.sendRedirect("recuperarSenhaComCodigo.jsp");
-            } else {
-                System.out.println("Nao encontrou!!");
+            if(resultadoValidacao == true){
+                TesteUsuarios bu = new TesteUsuarios();
+
+                Usuario r = bu.buscaUsuarioRecuperar(email, nome);
+
+                if (r != null) {
+                    MandaEmail e = new MandaEmail();
+
+                    TesteUsuarios se = new TesteUsuarios();
+                    int codigoAcesso = geraCodigoAcesso();
+
+                    if (r.getNome().equals(nome) && r.getEmail().equals(email)) {
+                        se.atualizaCodigo(email, nome, codigoAcesso);
+
+                        e.setAssunto("Recuperação de senha - Político na mão");
+                        e.setEmailDestino(email);
+                        e.setMsg("Olá " + nome + " seu código para acesso é: " + codigoAcesso);
+
+                        e.enviarGmail();
+                        request.setAttribute("usuarioParaRestaurar", r);
+                        response.sendRedirect("recuperarSenhaComCodigo.jsp");
+                    } else {
+                        request.setAttribute("msg","Nome de usuário ou e-mail diferente que o cadastrado!");
+                        request.getRequestDispatcher("recuperarSenha.jsp").forward(request, response);   
+                    }
+                    
+                } else {
+                    request.setAttribute("msg","Usuário não encontrado! por favor tente novamente!");
+                    request.getRequestDispatcher("recuperarSenha.jsp").forward(request, response);   
+                }
             }
         }
         
@@ -241,15 +313,23 @@ public class UsuarioServlet extends HttpServlet {
             TesteUsuarios bu = new TesteUsuarios();
             
             Usuario r = bu.buscaUsuario(email);
-            String codigoCifrado = Criptografia.computeSHA(String.valueOf(codigo));
             
-            if (r != null) {
-                if (r.getCodigoAcesso().equals(codigoCifrado)) {
-                    request.setAttribute("msg", "Por favor, troque sua senha");
-                    request.getRequestDispatcher("trocaSenha.jsp").forward(request, response);
-                }
+            if (codigo.isEmpty() || codigo.length() != 8) {
+                request.setAttribute("msg", "Código com tamanho inválido");
+                request.getRequestDispatcher("recuperarSenhaComCodigo.jsp").forward(request, response);
             } else {
-                System.out.println("Dados nao conferem!");
+                String codigoCifrado = Criptografia.computeSHA(String.valueOf(codigo));
+
+                if (r != null) {
+                    if (r.getCodigoAcesso().equals(codigoCifrado)) {
+                        request.setAttribute("msg", "Por favor, troque sua senha");
+                        request.setAttribute("usuarioParaRestaurar", r);
+                        request.getRequestDispatcher("trocaSenha.jsp").forward(request, response);
+                    }
+                } else {
+                    request.setAttribute("msg", "Código inválido, tente novamente!");
+                    request.getRequestDispatcher("recuperarSenhaComCodigo.jsp").forward(request, response);
+                }
             }
         }
                 
@@ -297,6 +377,11 @@ public class UsuarioServlet extends HttpServlet {
             dao.fechaConexao();
             
             request.getRequestDispatcher("favoritos.jsp").forward(request, response);
+        }
+        
+        if(opcao.equals("sair")){
+            request.setAttribute("usuario", null);
+            response.sendRedirect("index.jsp");
         }
     }
     

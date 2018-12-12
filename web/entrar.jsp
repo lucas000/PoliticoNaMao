@@ -14,7 +14,7 @@
     <body>
         <%@include file="barraMenu.jsp" %>
         <h3 class='display-5 mt-3' align='center'>Entrar</h3>
-        
+        <p>${usuario.email}</p>
         <div class="container">
             <c:if test="${msg != null}">
                 <p style="color: red">${msg}</p>

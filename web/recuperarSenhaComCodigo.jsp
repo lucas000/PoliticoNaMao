@@ -14,6 +14,12 @@
     <body>
         <%@include file="barraMenu.jsp" %>
         <h3 class='display-5 mt-3' align='center'>Recuperar conta</h3>
+        <div class="container">
+            <c:if test="${msg != null}">
+                <p style="color: red">${msg}</p>
+                <a href='recuperarSenha.jsp' class="badge badge-warning mr-2">Esqueceu a senha?</a>
+            </c:if>
+        </div>
         
         <div class="container mt-4">
             <form action="UsuarioServlet?cmd=recuperarComCodigo" method="POST">
@@ -23,7 +29,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Código de acesso</label>
-                  <input type="text" class="form-control" id="codigo" name="codigo" aria-describedby="emailHelp" placeholder="Seu código de acesso">
+                  <input type="number" class="form-control" id="codigo" name="codigo" aria-describedby="emailHelp" placeholder="Seu código de acesso" maxlength="8">
                 </div>
                 <button type="submit" class="btn btn-sucess">Recuperar</button>
             </form>

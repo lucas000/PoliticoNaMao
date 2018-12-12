@@ -58,4 +58,15 @@ public class VerificaSenha {
         }
         return true;
     }
+    
+    public boolean verificaCampos(String email, String senha1) {
+
+        if (email == null || email.equals("")) {
+            return false;
+        }
+        if (senha1 == null || senha1.equals("")) {
+            return false;
+        }
+        return true;
+    }
 }

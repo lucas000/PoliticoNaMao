@@ -36,11 +36,27 @@ public class TesteUsuarios {
         
     }
     
+    public Usuario buscaUsuarioRecuperar(String email, String nome){
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
+        EntityManager manager = factory.createEntityManager();
+        
+        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "' and e.nome like '" + nome + "'");
+        List usuario = query.getResultList();
+        
+        if(usuario.isEmpty()){
+            return null;
+        }else{
+            Usuario user = (Usuario) usuario.get(0);
+            return user;
+        }
+        
+    }
+    
     public void atualizaCodigo(String email, String nome, int codigoAcesso) throws Exception{
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
         
-        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "'");
+        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "' and e.nome like '" + nome + "'");
         List usuario = query.getResultList();
         Usuario user = (Usuario) usuario.get(0);
         
