@@ -54,7 +54,7 @@ public class UsuarioServlet extends HttpServlet {
         if (opcao.equals("fav")) {
             TesteQueriesDeputados fav = new TesteQueriesDeputados();
             String email = request.getParameter("user");
-
+            
             List favorito = fav.verFavoritos(email);
 
             request.setAttribute("favoritos", favorito);
@@ -476,10 +476,13 @@ public class UsuarioServlet extends HttpServlet {
 
                 if (r != null) {
                     if (r.getCodigoAcesso().equals(codigoCifrado)) {
-                        request.setAttribute("msg", "Por favor, troque sua senha");
+                        request.setAttribute("msg", "Código verificado<br>Por favor, troque sua senha");
 
                         request.setAttribute("usuarioParaRestaurar", r);
                         request.getRequestDispatcher("trocaSenha.jsp").forward(request, response);
+                    } else{
+                        request.setAttribute("msg", "Código inválido, tente novamente!");
+                        request.getRequestDispatcher("recuperarSenhaComCodigo.jsp").forward(request, response);
                     }
                 } else {
                     request.setAttribute("msg", "Código inválido, tente novamente!");
@@ -537,11 +540,11 @@ public class UsuarioServlet extends HttpServlet {
             favorito.setPartido(partido);
             favorito.setEstado(estado);
 
-            System.out.println("Favorto adicionar com sucesso: " + favorito.toString());
             dao.addFavorito(favorito);
             dao.fechaConexao();
 
-            request.getRequestDispatcher("favoritos.jsp").forward(request, response);
+            request.setAttribute("msg", "Deputado: " + nomeDeputado + " foi adicionado aos favoritos, para ver os deputados favoritos ");
+            request.getRequestDispatcher("deputados.jsp").forward(request, response);
         }
 
         if (opcao.equals("sair")) {

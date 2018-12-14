@@ -17,7 +17,6 @@
         <div class="container">
             <c:if test="${msg != null}">
                 <p style="color: red">${msg}</p>
-                <a href='recuperarSenha.jsp' class="badge badge-warning mr-2">Esqueceu a senha?</a>
             </c:if>
         </div>
         
@@ -28,8 +27,9 @@
                   <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="${usuarioParaRestaurar.email}">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Código de acesso</label>
-                  <input type="number" class="form-control" id="codigo" name="codigo" aria-describedby="emailHelp" placeholder="Seu código de acesso" maxlength="8">
+                    <label for="exampleInputEmail1">Código de acesso</label>
+                    <input type="number" class="form-control" id="codigo" name="codigo" aria-describedby="emailHelp" placeholder="Seu código de acesso" maxlength="8">
+                    <small id="emailHelp" class="form-text text-muted">Deve conter apenas 8 números.</small>
                 </div>
                 <button type="submit" class="btn btn-sucess">Recuperar</button>
             </form>

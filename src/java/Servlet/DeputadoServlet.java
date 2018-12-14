@@ -47,10 +47,14 @@ public class DeputadoServlet extends HttpServlet {
         
         TesteQueriesDeputados d = new TesteQueriesDeputados();
         request.setAttribute("deputados", d.buscaDeputados());
-        
+        String targetUrl = "";
+        String contextPath = this.getServletContext().getContextPath();
+        System.out.println("COntexto path: " + contextPath);
+        targetUrl = contextPath + "/faces/deputados.jsp";
+        System.out.println("Target: " + targetUrl);
+        System.out.println("Srin query: " + request.getQueryString());
         if (estado.equals("Todos") && partido.equals("Todos")) {
             request.setAttribute("deputados", d.buscaDeputados());
-        
             request.getRequestDispatcher("deputados.jsp").forward(request, response);
         } else if(estado.equals("Todos") && !"Todos".equals(partido)){
             request.setAttribute("deputados", d.buscaDeputadosPorPartido(partido));

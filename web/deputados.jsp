@@ -30,7 +30,8 @@
                 <div class="col-sm-8"><h5 class="display-5">Deputados</h5>
                 
                 <c:if test="${msg != null}">
-                    <p style="color: green">${msg}</p>
+                    <p style="color: green">${msg} <a href="<c:url value='/faces/UsuarioServlet?cmd=fav&user=${usuario.email}'/>">clique aqui</a>. 
+                       </p>
                 </c:if>
                 </div>
                 <div class="col-sm-2"></div>
@@ -110,14 +111,13 @@
                             </tr>
                         </thead>
                         <tbody>
-
-                            <c:forEach var="deputados" items="${deputados}">
-                                <tr>
-                                    <td><a href='<c:url value="/faces/fichaParlamentar?nome=${deputados.nomeParlamentar}"/>' class="alert-link-link">${deputados.nome}</a></td>
-                                    <td>${deputados.partido}</td>
-                                    <td>${deputados.uf}</td>
-                                </tr>
-                            </c:forEach>
+                                <c:forEach var="deputados" items="${deputados}">
+                                    <tr>
+                                        <td><a href='<c:url value="/faces/fichaParlamentar?nome=${deputados.nomeParlamentar}"/>' class="alert-link-link">${deputados.nome}</a></td>
+                                        <td>${deputados.partido}</td>
+                                        <td>${deputados.uf}</td>
+                                    </tr>
+                                </c:forEach>
                         </tbody>
                     </table>
                 </form>
