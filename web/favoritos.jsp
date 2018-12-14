@@ -44,7 +44,7 @@
                                     <td><a href='<c:url value="/faces/fichaParlamentar?nome=${favorito.nomeParlamentar}"/>' class="alert-link-link">${favorito.nome}</a></td>
                                     <td>${favorito.partido}</td>
                                     <td>${favorito.estado}</td>
-                                    <td><a href='<c:url value="/faces/DeputadoServlet?nome=${favorito.nomeParlamentar}&opcao=remover"/>' class="alert-link-link">Remover favorito</td>
+                                    <td><a href='<c:url value="/faces/FavoritoServlet?parlamentar=${favorito.nomeParlamentar}&seguidor=${usuario.email}"/>' class="alert-link-link">Remover favorito</td>
                                 </tr>
                             </c:forEach>
                         </tbody>

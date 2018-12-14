@@ -17,7 +17,7 @@
         <div class="card mt-5" style="width: 100%;" align="center">
             <div class="card-body">
                 <h5 class="card-title">O que é o Político na mão?</h5>
-                <p class="card-text">Somos uma equipe que busca disceminar informações sobre deputados, partidos e proposições do Brasil.<br>
+                <p class="card-text">Somos uma equipe que busca disceminar informações sobre <a href='<c:url value="faces/DeputadoServlet?estados=Todos&partidos=Todos"/>'> deputados</a>, <a href='<c:url value="/faces/PartidoServlet"/>'> partidos</a> e <a href="propostas.jsp"> proposições</a> do Brasil.<br>
                 Atualmente temos dados de 513 deputados, todos os partidos que estão na câmara dos deputados e proposições de
                 1934 até 2018.</p>
             </div>
@@ -27,10 +27,10 @@
             <div class="card-body">
                 <h5 class="card-title">Como usar?</h5>
                 <p class="card-text">Para utilizar nosso sistema você deve clicar em umas das opções na barra de menu acima.<br>
-                Ao clicar em Deputado você verá todos os deputados em exercício no Brasil, podendo também ordenar por estado e partido.
-                <br>A cada deputado temos mais informações que podem ser acessadas clicando no nome.<br>
-                Ao clicar em Partido terá informações dos partidos que estão na câmara, você pode também ordenar e clicando no link info você verá mais informações do partido.<br>
-                Na opção de Proposições mostrára todas as proposições que passaram pela câmara, podendo ordenar por ano.
+                Ao clicar em <a href='<c:url value="faces/DeputadoServlet?estados=Todos&partidos=Todos"/>'> Deputados</a> você verá todos os <a href='<c:url value="faces/DeputadoServlet?estados=Todos&partidos=Todos"/>'> deputados</a> em exercício no Brasil, podendo também ordenar por estado e partido.
+                <br>A cada <a href='<c:url value="faces/DeputadoServlet?estados=Todos&partidos=Todos"/>'> deputados</a> temos mais informações que podem ser acessadas clicando no nome.<br>
+                Ao clicar em <a href='<c:url value="/faces/PartidoServlet"/>'> Partidos</a> terá informações dos <a href='<c:url value="/faces/PartidoServlet"/>'> partidos</a> que estão na câmara, você pode também ordenar e clicando no link info você verá mais informações do <a href='<c:url value="/faces/PartidoServlet"/>'> partidos</a>.<br>
+                Na opção de <a href="propostas.jsp"> Proposições</a> mostrára todas as <a href="propostas.jsp"> proposições</a> que passaram pela câmara, podendo ordenar por ano.
                 <br>Ao clicar no id da proposta você terá mais informações sobre a proposta.
                 </p>
             </div>

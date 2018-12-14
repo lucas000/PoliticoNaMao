@@ -18,7 +18,7 @@
         
         <div class="container">
             <c:if test="${msg != null}">
-                <p style="color: red">${msg}</p>
+                <p style="color: green">${msg}</p>
                 <a href='recuperarSenha.jsp' class="badge badge-warning mr-2">Esqueceu a senha?</a>
             </c:if>
         </div>
@@ -35,6 +35,7 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Senha</label>
                     <input type="password" class="form-control" id="senha1" name="senha1" placeholder="Sua senha" maxlength="20">
+                    <small id="emailHelp" class="form-text text-muted">Deve conter números, letras(Maíusculas e minusculas), e caracteres especias, como - + * / = % ! @ & $ #</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Confirmar Senha</label>
@@ -45,5 +46,6 @@
             <br>
             <br>
         </div>
+       
     </body>
 </html>

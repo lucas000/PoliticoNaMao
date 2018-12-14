@@ -64,7 +64,9 @@ public class TesteQueriesDeputados {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Favorito e where e.emailSeguidor like '" + email + "'");
+        Query query = manager.createQuery("SELECT e FROM Favorito e where e.emailSeguidor=:email");
+        query.setParameter("email", email);
+        
         List favoritos = query.getResultList();
         
         return favoritos;

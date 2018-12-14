@@ -241,12 +241,12 @@ public class UsuarioServlet extends HttpServlet {
                     usuario.setNome(nome);
                     usuario.setStatus(1);
 
-                    System.out.println("Usuario: " + usuario.toString());
                     UsuariosDAO dao = new UsuariosDAO();
                     dao.addDeputado(usuario);
                     dao.fechaConexao();
 
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    request.setAttribute("msg", "Sua conta foi criada com sucesso.<br>Por favor, entre com seus dados informados na página anterior para acessar o sistema.");
+                    request.getRequestDispatcher("entrar.jsp").forward(request, response);
                 } else {
                     //Registro de Log 
                 Date data = new Date();
@@ -355,17 +355,19 @@ public class UsuarioServlet extends HttpServlet {
             Usuario r = bu.buscaUsuario(email);
 
             if (r != null) {
-                UsuariosDAO dao = new UsuariosDAO();
-
-                //aqui vem o metodo delete
-                response.sendRedirect("index.jsp");
-
+                TesteUsuarios ser = new TesteUsuarios();
+                
+                ser.apagaConta(email);
+                HttpSession sessao = request.getSession();
+                sessao.setAttribute("usuario", null);
+                
                 //Registro de Log 
                 Date data = new Date();
                 String date = String.valueOf(data);
                 ArquivoLog s = new ArquivoLog();
                 s.gerarLog("Email=" + email + ";Operação=Apagou Conta" + ";Data=" + date);
-                //
+                //aqui vem o metodo delete
+                response.sendRedirect("index.jsp");
 
             } else {
                 //Registro de Log 

@@ -27,7 +27,12 @@
         <div>
             <div class="row mt-3">
                 <div class="col-sm-2"></div>
-                <div class="col-sm-8"><h5 class="display-5">Deputados</h5></div>
+                <div class="col-sm-8"><h5 class="display-5">Deputados</h5>
+                
+                <c:if test="${msg != null}">
+                    <p style="color: green">${msg}</p>
+                </c:if>
+                </div>
                 <div class="col-sm-2"></div>
             </div>
             <div class="row">

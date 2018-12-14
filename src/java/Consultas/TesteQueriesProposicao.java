@@ -28,7 +28,9 @@ public class TesteQueriesProposicao {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Proposicao e Where e.ano="+ano);
+        Query query = manager.createQuery("SELECT e FROM Proposicao e Where e.ano=:ano");
+        query.setParameter("ano", ano);
+        
         List proposicao = query.getResultList();
         
         return proposicao;
@@ -38,26 +40,25 @@ public class TesteQueriesProposicao {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM ProposicaoAutor e Where e.idProposicao="+idProposicao);
+        Query query = manager.createQuery("SELECT e FROM ProposicaoAutor e Where e.idProposicao=:idProposicao");
+        query.setParameter("idProposicao", idProposicao);
         List proposicao = query.getResultList();
         
         if(proposicao.isEmpty()){
-        return null;
-        }else{
+            return null;
+        } else {
             ProposicaoAutor novo = (ProposicaoAutor) proposicao.get(0);
             return novo;
         }
-        
-        
-        
     }
- 
  
   public Proposicao buscaProposicao(int idProposicao){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Proposicao e Where e.id"+idProposicao);
+        Query query = manager.createQuery("SELECT e FROM Proposicao e Where e.id=:idProposicao");
+        query.setParameter("idProposicao", idProposicao);
+        
         List proposicao = query.getResultList();
         
         if(proposicao.isEmpty()){
@@ -92,7 +93,9 @@ public class TesteQueriesProposicao {
    public List<Proposicao> buscaProposicaoPorNomeAutor(String nomeAutor){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
-        Query query = manager.createQuery("SELECT e FROM Proposicao e join ProposicaoAutor p on e.id = p.idProposicao join Deputados d on d.nomeParlamentar = p.nomeAutor where d.nomeParlamentar like '"+nomeAutor+"'");
+        Query query = manager.createQuery("SELECT e FROM Proposicao e join ProposicaoAutor p on e.id = p.idProposicao join Deputados d on d.nomeParlamentar = p.nomeAutor where d.nomeParlamentar=:nomeAutor");
+        query.setParameter("nomeAutor", nomeAutor);
+        
         List proposicoes = query.getResultList();
         
         for(Object d : proposicoes){

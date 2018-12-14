@@ -24,7 +24,8 @@ public class TesteUsuarios {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "'");
+        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email=:email");
+        query.setParameter("email", email);
         List usuario = query.getResultList();
 
         if (usuario.isEmpty()) {
@@ -42,7 +43,10 @@ public class TesteUsuarios {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "' and e.nome like '" + nome + "'");
+        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email=:email and e.nome=:nome");
+        query.setParameter("email", email);
+        query.setParameter("nome", nome);
+                
         List usuario = query.getResultList();
 
         if (usuario.isEmpty()) {
@@ -60,7 +64,10 @@ public class TesteUsuarios {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "' and e.nome like '" + nome + "'");
+        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email=:email and e.nome=:nome");
+        query.setParameter("email", email);
+        query.setParameter("nome", nome);
+        
         List usuario = query.getResultList();
         Usuario user = (Usuario) usuario.get(0);
 
@@ -78,7 +85,9 @@ public class TesteUsuarios {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "'");
+        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email=:email'");
+        query.setParameter("email", email);
+        
         List usuario = query.getResultList();
         Usuario user = (Usuario) usuario.get(0);
 
@@ -96,8 +105,12 @@ public class TesteUsuarios {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("DELETE FROM Usuario e Where e.email like '" + email + "'");
-        
+        manager.getTransaction().begin();
+        System.out.println("APagou");
+        Query query = manager.createQuery("DELETE FROM Usuario e Where e.email=:email");
+        query.setParameter("email", email);
+        query.executeUpdate();
+        manager.getTransaction().commit();
         manager.close();
     }
 
@@ -105,7 +118,9 @@ public class TesteUsuarios {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email like '" + email + "'");
+        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email=:email");
+        query.setParameter("email", email);
+        
         List usuario = query.getResultList();
         Usuario user = (Usuario) usuario.get(0);
 

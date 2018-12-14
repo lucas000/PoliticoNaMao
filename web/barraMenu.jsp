@@ -37,21 +37,20 @@
                             <a class="nav-link" href="<c:url value='/faces/UsuarioServlet?cmd=fav&user=${usuario.email}'/>">Deputados Favoritos</a> 
                         </li>
                     </c:if>
-                    <c:if test="${usuario != null}">
-                        <li class="nav-item">
-                            <a class="nav-link" href="<c:url value='/faces/UsuarioServlet?cmd=apagar&user=${usuario.email}'/>">Apagar conta</a> 
-                        </li>
-                    </c:if>
-                        
                     </ul> 
-                    <ul class="navbar-nav mr-auto navbar-right">
+                    <ul class="navbar-nav navbar-right">
                         <c:if test="${usuario != null}">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Olá ${usuario.nome}</a> 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<c:url value='/faces/UsuarioServlet?cmd=sair&user=${usuario.email}'/>">| Sair</a> 
+                                <a class="nav-link" href="<c:url value='/faces/UsuarioServlet?cmd=sair&user=${usuario.email}'/>">| Sair |</a> 
                             </li>
+                            <c:if test="${usuario != null}">
+                                <li class="nav-item ml-4">
+                                    <a class="nav-link" href="apagarConta.jsp">Apagar conta</a> 
+                                </li>
+                            </c:if>
                         </c:if>
                             
                     </ul>

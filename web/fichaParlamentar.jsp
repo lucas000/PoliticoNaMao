@@ -15,11 +15,15 @@
     </head>
     <body>
         <%@include file="barraMenu.jsp" %>
-        <div class="container mt-2" align="center">
-            <form action="UsuarioServlet?cmd=addFavorito&nome=${deputadoss.nome}&nomeParlamentar=${deputadoss.nomeParlamentar}&partido=${deputadoss.partido}&estado=${deputadoss.uf}&nomeSeguidor=${usuario.email}" method="POST" >
-                <button type="submit" class="btn btn-primary" >Adicionar aos favoritos</button>
-            </form>
-        </div>
+        
+        <c:if test="${usuario != null}">
+            <div class="container mt-2" align="center">
+                <form action="UsuarioServlet?cmd=addFavorito&nome=${deputadoss.nome}&nomeParlamentar=${deputadoss.nomeParlamentar}&partido=${deputadoss.partido}&estado=${deputadoss.uf}&nomeSeguidor=${usuario.email}" method="POST" >
+                    <button type="submit" class="btn btn-primary" >Adicionar aos favoritos</button>
+                </form>
+            </div>
+        </c:if>
+        
         <div class="container mt-2">
             <div class="row">
                 <div class="col-sm-2"></div>

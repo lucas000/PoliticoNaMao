@@ -36,7 +36,7 @@ public class VerificaSenha {
             return false;
         }
         // Critério 5: Senha contém um dos seguintes caracteres especiais: - + * / = % ! @ & $
-        Pattern p5 = Pattern.compile("[-+*/=%!@&$]");
+        Pattern p5 = Pattern.compile("[-+*/=%!@&$#]");
         if (!p5.matcher(senha).find()) {
             return false;
         }
