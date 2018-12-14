@@ -8,6 +8,11 @@ package Servlet;
 
 import Consultas.TesteQueriesDeputados;
 import java.io.IOException;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,10 +41,13 @@ public class DeputadoServlet extends HttpServlet {
         
         String estado = request.getParameter("estados");
         String partido = request.getParameter("partidos");
+        String opcao = request.getParameter("remover");
+        String nomeParlamentar = request.getParameter("nome");
+        
         
         TesteQueriesDeputados d = new TesteQueriesDeputados();
-        
         request.setAttribute("deputados", d.buscaDeputados());
+        
         if (estado.equals("Todos") && partido.equals("Todos")) {
             request.setAttribute("deputados", d.buscaDeputados());
         

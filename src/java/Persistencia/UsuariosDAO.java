@@ -6,6 +6,7 @@
 package Persistencia;
 
 import Modelos.Usuario;
+import javax.mail.Session;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -17,6 +18,7 @@ import javax.persistence.Persistence;
 public class UsuariosDAO {
     EntityManagerFactory usuarios = Persistence.createEntityManagerFactory("PU");
     EntityManager manager = usuarios.createEntityManager();
+    private Session sessao;
     
     public void addDeputado(Usuario usuario){
         manager.getTransaction().begin();
@@ -35,6 +37,7 @@ public class UsuariosDAO {
         manager.remove(usuarios);
         manager.getTransaction().commit();
     }
+    
     public void fechaConexao(){
         manager.close();
     }

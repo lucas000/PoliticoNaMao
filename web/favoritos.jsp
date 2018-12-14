@@ -34,6 +34,7 @@
                                 <th scope="col">Nome</th>
                                 <th scope="col">Partido</th>
                                 <th scope="col">Estado</th>
+                                <th scope="col">Remover</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +44,7 @@
                                     <td><a href='<c:url value="/faces/fichaParlamentar?nome=${favorito.nomeParlamentar}"/>' class="alert-link-link">${favorito.nome}</a></td>
                                     <td>${favorito.partido}</td>
                                     <td>${favorito.estado}</td>
+                                    <td><a href='<c:url value="/faces/DeputadoServlet?nome=${favorito.nomeParlamentar}&opcao=remover"/>' class="alert-link-link">Remover favorito</td>
                                 </tr>
                             </c:forEach>
                         </tbody>

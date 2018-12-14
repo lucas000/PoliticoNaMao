@@ -38,31 +38,28 @@
                         </li>
                     </c:if>
                     <c:if test="${usuario != null}">
-                        <li class="nav-item dropdown navbar-left">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Opções
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="<c:url value='/faces/UsuarioServlet?cmd=sair&user=${usuario.email}'/>">Sair</a>
-                              <a class="dropdown-item" href="<c:url value='/faces/UsuarioServlet?cmd=apagarConta&user=${usuario.email}'/>">Apagar conta</a>
-                              <a class="dropdown-item" href=alterarConta.jsp"/>Alterar conta</a>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<c:url value='/faces/UsuarioServlet?cmd=apagar&user=${usuario.email}'/>">Apagar conta</a> 
                         </li>
                     </c:if>
-                    <c:if test="${usuario != null}">
-                        <li class="nav-item">
-                            <a class="nav-link" href="alterar.jsp">Alterar conta</a> 
-                        </li>
+                        
+                    </ul> 
+                    <ul class="navbar-nav mr-auto navbar-right">
+                        <c:if test="${usuario != null}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Olá ${usuario.nome}</a> 
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<c:url value='/faces/UsuarioServlet?cmd=sair&user=${usuario.email}'/>">| Sair</a> 
+                            </li>
+                        </c:if>
+                            
+                    </ul>
+                    <c:if test="${usuario == null}">
+                        <form class="form-inline my-2 my-lg-0" action="entrar.jsp">
+                            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Entrar</button>
+                        </form>
                     </c:if>
-                    <c:if test="${usuario != null}">
-                        <li class="nav-item">
-                            <a class="nav-link" href="<c:url value='/faces/UsuarioServlet?cmd=apagarConta&user=${usuario.email}'/>">Apagar Conta</a> 
-                        </li>
-                    </c:if>    
-                </ul> 
-                    <form class="form-inline my-2 my-lg-0" action="entrar.jsp">
-                        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Entrar</button>
-                    </form>
             </div> 
         </nav>
                     

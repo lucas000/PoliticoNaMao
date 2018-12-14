@@ -5,6 +5,8 @@
  */
 package Consultas;
 
+import java.util.ArrayList;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -68,5 +70,42 @@ public class VerificaSenha {
             return false;
         }
         return true;
+    }
+    
+    
+    public boolean verificarSenha(String email , String senha){
+    
+        ArrayList<String> sub = new ArrayList();
+        ArrayList<String> sub1 = new ArrayList();
+
+        for (int i = 0; i < email.length(); i++) {
+            sub.add("" + email.charAt(i) + email.charAt(i + 1) + email.charAt(i + 2) + email.charAt(i + 3));
+            if (email.charAt(i + 4) == '.') {
+                break;
+            }
+        }
+
+        for (int i = 0; i < senha.length(); i++) {
+            if ((i + 3) == senha.length()) {
+                break;
+            }
+            sub1.add("" + senha.charAt(i) + senha.charAt(i + 1) + senha.charAt(i + 2) + senha.charAt(i + 3));
+
+        }
+
+
+        for (String sub1s : sub1) {
+            Pattern p = Pattern.compile(sub1s);
+            for (int i = 0; i < sub.size(); i++) {
+                Matcher m = p.matcher(sub.get(i));
+                if(!m.matches() == false){
+                return false;
+                }
+            }
+        }
+    
+    
+        return true;
+    
     }
 }
