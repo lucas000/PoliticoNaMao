@@ -35,17 +35,17 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Senha</label>
                     <input type="password" class="form-control" id="senha1" name="senha1" placeholder="Sua senha" maxlength="20">
-                    <small id="emailHelp" class="form-text text-muted">Deve conter números, letras(Maíusculas e minusculas), e caracteres especias, como - + * / = % ! @ & $ #</small>
+                    <small id="emailHelp" class="form-text text-muted">Deve conter números, letras(Maíusculas e minusculas), não pode conter partes do e-mail, e caracteres especias, como - + * / = % ! @ & $ #</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Confirmar Senha</label>
                     <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Confirme sua senha" maxlength="20">
+                    <small id="emailHelp" class="form-text text-muted">As senhas devem ser iguais.</small>
                 </div>
                 <button type="submit" class="btn btn-sucess" >Cadastrar</button>
             </form>
             <br>
             <br>
         </div>
-       
     </body>
 </html>

@@ -9,15 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recuperar senha</title>
+        <title>Insira o código</title>
     </head>
     <body>
         <%@include file="barraMenu.jsp" %>
-        <h3 class='display-5 mt-3' align='center'>Recuperar conta</h3>
+        <h3 class='display-5 mt-3' align='center'>Digite o código de acesso</h3>
         <div class="container">
             <c:if test="${msg != null}">
                 <p style="color: red">${msg}</p>
             </c:if>
+                <p>Por favor, acesse seu e-mail para ver o código de acesso.</p>    
         </div>
         
         <div class="container mt-4">

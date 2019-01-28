@@ -85,7 +85,7 @@ public class TesteUsuarios {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("PU");
         EntityManager manager = factory.createEntityManager();
 
-        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email=:email'");
+        Query query = manager.createQuery("SELECT e FROM Usuario e Where e.email=:email");
         query.setParameter("email", email);
         
         List usuario = query.getResultList();

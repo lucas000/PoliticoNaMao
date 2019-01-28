@@ -51,7 +51,7 @@ public class FavoritoServlet extends HttpServlet {
                 
                 favorit.apagaFavorito(fav);
 
-                request.setAttribute("msg", "O deputado: " + nomeParlamentar + " foi removido dos favoritos com sucesso<br>Por favor, clique em buscar para ver os deputados.");
+                request.setAttribute("msg", "O deputado: " + nomeParlamentar + " foi removido dos favoritos com sucesso<br>Por favor, clique em Buscar para ver a lista de todos os deputados.<br>Para ver os favoritos ");
                 request.getRequestDispatcher("deputados.jsp").forward(request, response);
         }
     }

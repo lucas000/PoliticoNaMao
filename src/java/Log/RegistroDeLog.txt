@@ -1,0 +1,39 @@
+Email=lucasdejesus000@gmail.com;Operação=Tentou emtrar no sistema;Data=Mon Dec 17 07:57:45 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou cadastrar no sistema;Data=Mon Dec 17 07:58:04 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Entrou no sistema;Data=Mon Dec 17 07:58:44 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Entrou no sistema;Data=Mon Dec 17 07:59:10 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Sair;Data=Mon Dec 17 07:59:27 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Entrou no sistema;Data=Mon Dec 17 07:59:56 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Sair;Data=Mon Dec 17 08:01:12 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 08:02:31 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 08:02:53 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 08:03:11 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 08:03:41 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Entrou no sistema;Data=Mon Dec 17 08:04:08 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Adicionou Favorito;Data=Mon Dec 17 08:05:15 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Sair;Data=Mon Dec 17 08:05:43 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Recuperou senha;Data=Mon Dec 17 08:06:16 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Trocar de Senha;Data=Mon Dec 17 08:09:19 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Trocar de Senha;Data=Mon Dec 17 08:09:39 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Trocar de Senha;Data=Mon Dec 17 08:09:58 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 08:10:25 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 08:10:51 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 08:11:15 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Tentou cadastrar no sistema;Data=Mon Dec 17 08:14:57 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Tentou cadastrar no sistema;Data=Mon Dec 17 08:15:22 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 08:27:28 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 08:27:53 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Tentou recuperar senha;Data=Mon Dec 17 08:48:48 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Entrou no sistema;Data=Mon Dec 17 08:59:49 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Entrou no sistema;Data=Mon Dec 17 09:05:15 BRST 2018
+Email=lucasdejesus000@gmail.com;Operação=Sair;Data=Mon Dec 17 09:20:42 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Tentou cadastrar no sistema;Data=Mon Dec 17 09:21:19 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Tentou cadastrar no sistema;Data=Mon Dec 17 09:21:46 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Recuperou senha;Data=Mon Dec 17 09:23:24 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Recuperou senha;Data=Mon Dec 17 09:27:03 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Trocar de Senha;Data=Mon Dec 17 09:28:20 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 09:31:27 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 09:31:58 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Tentou entrar no sistema;Data=Mon Dec 17 09:32:33 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Tentou emtrar no sistema;Data=Mon Dec 17 09:33:09 BRST 2018
+Email=samuelalvesv4@gmail.com;Operação=Tentou emtrar no sistema;Data=Mon Dec 17 09:33:41 BRST 2018

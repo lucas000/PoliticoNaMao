@@ -33,6 +33,7 @@
                     <p style="color: green">${msg} <a href="<c:url value='/faces/UsuarioServlet?cmd=fav&user=${usuario.email}'/>">clique aqui</a>. 
                        </p>
                 </c:if>
+                       <p>Tente ordenar os dados para facilitar a busca por deputado.</p>
                 </div>
                 <div class="col-sm-2"></div>
             </div>
@@ -88,7 +89,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-default ml-2">Buscar</button>
+                                <button type="submit" class="btn btn-default ml-2">Ordenar</button>
                             </div>
                         </form>
                     </div>

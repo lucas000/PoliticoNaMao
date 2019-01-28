@@ -44,7 +44,7 @@ public class ArquivoLog {
    } 
     
     private static String readLog(){
-        String caminho= "D:\\A\\PoliticoNaMao\\src\\java\\Log\\RegistroDeLog.txt";
+        String caminho= "C:\\Users\\Lucas\\Desktop\\PoliticoNaMao\\src\\java\\Log\\RegistroDeLog.txt";
         String conteudo = "";
         
         try {
@@ -74,7 +74,7 @@ public class ArquivoLog {
         }
     }
     private static boolean write(String log){
-        String caminho= "D:\\A\\PoliticoNaMao\\src\\java\\Log\\RegistroDeLog.txt";
+        String caminho= "C:\\Users\\Lucas\\Desktop\\PoliticoNaMao\\src\\java\\Log\\RegistroDeLog.txt";
         try {
             FileWriter arq = new FileWriter(caminho);
             PrintWriter gravararq = new PrintWriter(arq);

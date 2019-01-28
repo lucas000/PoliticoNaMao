@@ -20,7 +20,7 @@
                 <p style="color: red">${msg}</p>
             </c:if>
         </div>
-        
+
         <div class="container mt-4">
             <form action="UsuarioServlet?cmd=alterarConta&email=${usuario.email}&nome=${usuario.nome}" method="POST">
                 <div class="form-group">

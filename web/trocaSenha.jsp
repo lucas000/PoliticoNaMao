@@ -9,15 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recuperar senha</title>
+        <title>Alterar senha</title>
     </head>
     <body>
         <%@include file="barraMenu.jsp" %>
-        <h3 class='display-5 mt-3' align='center'>Recuperar conta</h3>
+        <h3 class='display-5 mt-3' align='center'>Alterar senha</h3>
         <div class="container">
             <c:if test="${msg != null}">
                 <p style="color: green">${msg}</p>
             </c:if>
+                <p>Após a alteração da sua senha, você será redirecionado(a) para a tela de login.</p>
         </div>
         <div class="container mt-4">
             <form action="UsuarioServlet?cmd=trocarSenha" method="POST">
@@ -33,7 +34,7 @@
                     <label for="exampleInputPassword1">Confirmar Senha</label>
                     <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Confirme sua senha" maxlength="20">
                 </div>
-                <button type="submit" class="btn btn-sucess">Recuperar</button>
+                <button type="submit" class="btn btn-sucess">Trocar senha</button>
             </form>
         </div>
     </body>

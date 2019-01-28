@@ -48,7 +48,19 @@ public class UsuarioServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
-
+        
+        /* Ordem das opções de entrada
+        *   1 - fav, quer dizer favorito, mostra os favoritos do usuario logado
+        *   3 - alterar conta,
+        *   3 - cadastrar inseri o usuario no sistema e redireciona para a entrar.jsp
+        *   4 - entrar, verifica se existe, se sim, vai para a index.jsp
+        *   5 - apagar, pedi credenciais, e vai para a index.jsp
+        *   6 - recuperar, pedi o nome e email e envia o codigo para o email do usuario
+        *   7 - recupera com codigo, pedi o codigo e vai para tela de alterar senha
+        *   8- trocar senha, pega os dados do formulario e altera a conta
+        *   9 - addFavorito, adiciona favorito ao usuario logado.
+        *   10 - sair, fecha a sessao e vai para a index.jsp
+        */
         String opcao = request.getParameter("cmd");
 
         if (opcao.equals("fav")) {
@@ -64,10 +76,7 @@ public class UsuarioServlet extends HttpServlet {
             }
             request.getRequestDispatcher("favoritos.jsp").forward(request, response);
         }
-        if (opcao.equals("sair")) {
-            HttpSession sessao = request.getSession();
-            sessao.setAttribute("usuario", null);
-        }
+
         if (opcao.equals("alterarConta")) {
             String email = request.getParameter("email");
             String senha1 = request.getParameter("senha1");
@@ -183,7 +192,6 @@ public class UsuarioServlet extends HttpServlet {
             VerificaSenha v = new VerificaSenha();
 
             boolean resultadoValidacao = true;
-
             if (v.verificaCampos(nome, email, senha1, senha2) == false) {
                 //Registro de Log 
                 Date data = new Date();
@@ -226,7 +234,19 @@ public class UsuarioServlet extends HttpServlet {
                 request.setAttribute("msg", "Senha fraca! <br> Requisitos Mínimos:<br> 8 caracteres <br> Letras Maiúsculas e Minúsculas <br> Caracteres Especiais");
                 request.getRequestDispatcher("cadastrar.jsp").forward(request, response);
             }
+            
+            else if (v.verificarSenha(email, senha2) == false) {
+                //Registro de Log 
+                Date data = new Date();
+                String date = String.valueOf(data);
+                ArquivoLog s = new ArquivoLog();
+                s.gerarLog("Email=" + email + ";Operação=Tentou cadastrar no sistema" + ";Data=" + date);
+                //
+                resultadoValidacao = false;
+                request.setAttribute("msg", "A senha não pode ter partes do e-mail. Tente novamente.");
+                request.getRequestDispatcher("cadastrar.jsp").forward(request, response);
 
+            }
             if (resultadoValidacao == true) {
                 TesteUsuarios tu = new TesteUsuarios();
                 Usuario user = tu.buscaUsuario(email);
@@ -249,11 +269,11 @@ public class UsuarioServlet extends HttpServlet {
                     request.getRequestDispatcher("entrar.jsp").forward(request, response);
                 } else {
                     //Registro de Log 
-                Date data = new Date();
-                String date = String.valueOf(data);
-                ArquivoLog s = new ArquivoLog();
-                s.gerarLog("Email=" + email + ";Operação=Tentou cadastrar no sistema" + ";Data=" + date);
-                //
+                    Date data = new Date();
+                    String date = String.valueOf(data);
+                    ArquivoLog s = new ArquivoLog();
+                    s.gerarLog("Email=" + email + ";Operação=Tentou cadastrar no sistema" + ";Data=" + date);
+                    //
                     request.setAttribute("msg", "Usuário já está cadastrado. <br>Tente recuperar a senha!<br>");
                     request.getRequestDispatcher("cadastrar.jsp").forward(request, response);
                 }
@@ -326,9 +346,9 @@ public class UsuarioServlet extends HttpServlet {
                     Date data = new Date();
                     String date = String.valueOf(data);
                     ArquivoLog s = new ArquivoLog();
-                    s.gerarLog("Email=" + email + ";Operação=Tentou emtrar no sistema" + ";Data=" + date);
+                    s.gerarLog("Email=" + email + ";Operação=Tentou entrar no sistema" + ";Data=" + date);
                     //
-                            request.setAttribute("msg", "Tente novamente@!");
+                            request.setAttribute("msg", "Tente novamente, por favor!");
                         }
                         bu.Cont_Erro_Acesso(email);
 
@@ -427,6 +447,7 @@ public class UsuarioServlet extends HttpServlet {
                         s.gerarLog("Email=" + email + ";Operação=Recuperou senha" + ";Data=" + date);
                         //
 
+                        request.setAttribute("msg", "Seu código foi enviado ao e-mail, verifique sua caixa de entrada, por favor!");
                         request.setAttribute("usuarioParaRestaurar", r);
                         response.sendRedirect("recuperarSenhaComCodigo.jsp");
                     } else {
@@ -513,7 +534,8 @@ public class UsuarioServlet extends HttpServlet {
 
                 TesteUsuarios d = new TesteUsuarios();
                 d.atualizaContaBloqueada(email);
-                response.sendRedirect("entrar.jsp");
+                request.setAttribute("msg", "Sua senha foi alterada com sucesso.<br>Coloque suas credenciais abaixo para entrar no sistema.");
+                request.getRequestDispatcher("entrar.jsp").forward(request, response);
             }
         }
         if (opcao.equals("addFavorito")) {

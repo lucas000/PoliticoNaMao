@@ -9,11 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recuperar senha</title>
+        <title>Solicitar código</title>
     </head>
     <body>
         <%@include file="barraMenu.jsp" %>
-        <h3 class='display-5 mt-3' align='center'>Recuperar conta</h3>
+        <h3 class='display-5 mt-3' align='center'>Solicitar código de acesso</h3>
         <div class="container">
             <c:if test="${msg != null}">
                 <p style="color: red">${msg}</p>
@@ -30,7 +30,7 @@
                   <label for="exampleInputPassword1">Nome completo</label>
                   <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome completo">
                 </div>
-                <button type="submit" class="btn btn-sucess">Restaurar</button>
+                <button type="submit" class="btn btn-sucess">Solicitar</button>
             </form>
         </div>
     </body>

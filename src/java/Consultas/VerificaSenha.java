@@ -74,7 +74,6 @@ public class VerificaSenha {
     
     
     public boolean verificarSenha(String email , String senha){
-    
         ArrayList<String> sub = new ArrayList();
         ArrayList<String> sub1 = new ArrayList();
 
@@ -92,8 +91,6 @@ public class VerificaSenha {
             sub1.add("" + senha.charAt(i) + senha.charAt(i + 1) + senha.charAt(i + 2) + senha.charAt(i + 3));
 
         }
-
-
         for (String sub1s : sub1) {
             Pattern p = Pattern.compile(sub1s);
             for (int i = 0; i < sub.size(); i++) {
@@ -103,9 +100,6 @@ public class VerificaSenha {
                 }
             }
         }
-    
-    
         return true;
-    
     }
 }

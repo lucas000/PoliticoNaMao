@@ -26,6 +26,8 @@ import org.xml.sax.SAXException;
  *
  * @author Lucas
  */
+
+
 public class DeputadosDOM {
     public void fazerParsing(InputStream pathArq) throws SAXException,
             IOException, ParserConfigurationException {
