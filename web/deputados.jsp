@@ -63,6 +63,7 @@
 
                             <div class="form-group">
                                 <select class="form-control md-1" name="partidos">
+                                    <a class="dropdown-item" href="#">DEM</a>
                                     <option>Todos</option>
                                     <option>DEM</option>
                                     <option>AVANTE</option>
@@ -119,13 +120,21 @@
                                         <td>${deputados.uf}</td>
                                     </tr>
                                 </c:forEach>
+
+                            <c:forEach var="deputados" items="${deputados}">
+                                <tr>
+                                    <td><a href='<c:url value="/faces/fichaParlamentar?nome=${deputados.nome}"/>' class="alert-link-link">${deputados.nome}</a></td>
+                                    <td><a href='<c:url value="/faces/fichaParlamentar?nome=${deputados.nomeParlamentar}"/>' class="alert-link-link">${deputados.nome}</a></td>
+                                    <td>${deputados.partido}</td>
+                                    <td>${deputados.uf}</td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </form>
             </div>
             <div class="col-2"></div>
         </div>  
-        <%@include file="footer.jsp" %>
         <script src="../../../PoliticoNaMao/resources/js/deputados.js"></script>
         <script src="../../../PoliticoNaMao/resources/node_modules/jquery/dist/jquery.js"></script>
         <script src="../../../PoliticoNaMao/resources/node_modules/popper.js/dist/umd/popper.js"></script>

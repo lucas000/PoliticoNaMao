@@ -16,6 +16,7 @@ import javax.persistence.Persistence;
  * @author Lucas
  */
 public class UsuariosDAO {
+
     EntityManagerFactory usuarios = Persistence.createEntityManagerFactory("PU");
     EntityManager manager = usuarios.createEntityManager();
     private Session sessao;
@@ -27,12 +28,22 @@ public class UsuariosDAO {
     }
     
     public void alterUsuario(Usuario usuarios){
+    EntityManagerFactory usuarios = Persistence.createEntityManagerFactory("Usuario");
+    EntityManager manager = usuarios.createEntityManager();
+    
+    public void addDeputado(Usuario usuarios){
+        manager.getTransaction().begin();
+        manager.persist(usuarios);
+        manager.getTransaction().commit();
+    }
+    
+    public void alterDeputado(Usuario usuarios){
         manager.getTransaction().begin();
         manager.merge(usuarios);
         manager.getTransaction().commit();
     }
     
-    public void deleteUsuario(Usuario usuarios){
+    public void deleteDeputado(Usuario usuarios){
         manager.getTransaction().begin();
         manager.remove(usuarios);
         manager.getTransaction().commit();

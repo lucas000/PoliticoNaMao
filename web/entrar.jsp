@@ -23,6 +23,10 @@
         </div>
         <div class="container mt-4">
             <form action="UsuarioServlet?cmd=entrar" method="POST" name="entrar">
+         <%@include file="barraMenu.jsp" %>
+         
+         <div class="container mt-4">
+             <form action="UsuarioServlet" method="POST">
                 <div class="form-group">
                   <label for="exampleInputEmail1">E-mail</label>
                   <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Seu e-mail">
@@ -31,11 +35,15 @@
                   <label for="exampleInputPassword1">Senha</label>
                   <input type="password" class="form-control" id="senha" name="senha" placeholder="Sua senha">
                 </div>
-                
                 <a href='recuperarSenha.jsp' class="badge badge-warning mr-2">Esqueceu a senha?</a>
                 <a href='cadastrar.jsp' class="badge badge-primary">Cadastrar-se</a><br>
                 <button type="submit" class="btn btn-sucess">Entrar</button>
             </form>
         </div>
+                <button type="submit" class="btn btn-sucess">Entrar</button>
+                <button type="submit" class="btn btn-sucess">Esqueceu a senha?</button>
+                <button type="submit" class="btn btn-sucess">Cadastrar-se</button>
+            </form>
+         </div>
     </body>
 </html>

@@ -16,6 +16,7 @@ import javax.persistence.Id;
  *
  * @author Lucas
  */
+
 @Entity
 public class Usuario implements Serializable {
     
@@ -34,20 +35,17 @@ public class Usuario implements Serializable {
     @Column(nullable=true) 
     private String codigoAcesso;
     
+public class Usuario {
+    private int id;
+    private String email;
+    private String senha;
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getEmail() {
@@ -66,34 +64,9 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public String getCodigoAcesso() {
-        return codigoAcesso;
-    }
-
-    public void setCodigoAcesso(String codigoAcesso) {
-        this.codigoAcesso = codigoAcesso;
-    }
-
-    public int getTentativas() {
-        return tentativas;
-    }
-
-    public void setTentativas(int tentativas) {
-        this.tentativas = tentativas;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", status=" + status + ", tentativas=" + tentativas + ", codigoAcesso=" + codigoAcesso + '}';
+        return "Usuario{" + "id=" + id + ", email=" + email + ", senha=" + senha + '}';
     }
-
-    
 }

@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -592,6 +594,13 @@ public class UsuarioServlet extends HttpServlet {
         Random r = new Random();
 
         return r.nextInt(999999999);
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        
+        String email = request.getParameter("email");
+        String senha = request.getParameter("senha");
+        
+        System.out.println("Email e senha: " + email +  senha);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -629,6 +638,7 @@ public class UsuarioServlet extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        processRequest(request, response);
     }
 
     /**
